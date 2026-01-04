@@ -1,0 +1,60 @@
+#ifndef GEMTEXTPARSER_H
+#define GEMTEXTPARSER_H
+
+#include &lt;e32base.h&gt;
+
+enum TGemLineType
+    {
+    EGemText = 0,
+    EGemHeading1,
+    EGemHeading2,
+    EGemHeading3,
+    EGemListItem,
+    EGemQuote,
+    EGemLink,
+    EGemPreformatted
+    };
+
+class CGemLine : public CBase
+    {
+public:
+    static CGemLine* NewL(TGemLineType aType, const TDesC&amp; aText);
+    static CGemLine* NewLinkL(const TDesC&amp; aUrl, const TDesC&amp; aLabel);
+    ~CGemLine();
+
+    TGemLineType Type() const { return iType; }
+    const TDesC&amp; Text() const { return *iText; }
+    const TDesC&amp; Url() const { return iUrl ? *iUrl : KNullDesC(); }
+
+private:
+    CGemLine();
+    void ConstructL(TGemLineType aType, const TDesC&amp; aText);
+    void ConstructLinkL(const TDesC&amp; aUrl, const TDesC&amp; aLabel);
+
+private:
+    TGemLineType iType;
+    HBufC* iText;  // Display text (or preformatted content)
+    HBufC* iUrl;   // Only for links
+    };
+
+class CGemtextParser : public CBase
+    {
+public:
+    static CGemtextParser* NewL();
+    ~CGemtextParser();
+
+    void ParseL(const TDesC&amp; aContent);
+    TInt LineCount() const { return iLines.Count(); }
+    const CGemLine&amp; Line(TInt aIndex) const { return *iLines[aIndex]; }
+
+private:
+    CGemtextParser();
+    void ConstructL();
+    void ParseLineL(const TDesC&amp; aLine, TBool aPreformatted);
+
+private:
+    RPointerArray&lt;CGemLine&gt; iLines;
+    };
+
+#endif // GEMTEXTPARSER_H
+s

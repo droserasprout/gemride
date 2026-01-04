@@ -1,0 +1,12 @@
+#ifndef GEMINIOBSERVER_H
+#define GEMINIOBSERVER_H
+
+class MGeminiObserver
+    {
+public:
+    virtual void OnConnecting() = 0;
+    virtual void OnResponseReceived(const TDesC8& aStatus, const TDesC8& aMeta, const TDesC8& aBody) = 0;
+    virtual void OnError(TInt aError, const TDesC& aMessage) = 0;
+    };
+
+#endif

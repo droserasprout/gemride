@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="baseNameLower" value="gemride"/>
+	<item key="gfxDir" value="gfx"/>
+	<item key="uid3" value="0xEED04A3E"/>
+	<item key="message" value="Hello World!"/>
+	<item key="sourceDir" value="src"/>
+	<item key="sisDir" value="sis"/>
+	<item key="LANGUAGE_ID" value="01"/>
+	<item key="baseNameUpper" value="GEMRIDE"/>
+	<item key="groupDir" value="group"/>
+	<item key="helpDir" value="help"/>
+	<item key="incDir" value="inc"/>
+	<item key="baseName" value="gemride"/>
+	<item key="uid3-WITHOUT_0X" value="EED04A3E"/>
+	<item key="dataDir" value="data"/>
+	<item key="location" value="C:/Symbian/Carbide/workspace"/>
+	<item key="projectName" value="gemride"/>
+	<item key="supportEmail" value="debris@drsr.io"/>
+	<item key="author" value="Lev Gorodetskii"/>
+	<item key="copyright" value=""/>
+</section>

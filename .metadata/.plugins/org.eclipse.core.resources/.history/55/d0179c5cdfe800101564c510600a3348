@@ -1,0 +1,213 @@
+/*
+========================================================================
+ Name        : GemrideContainerView.cpp
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+
+#include <aknviewappui.h>
+#include <eikmenub.h>
+#include <avkon.hrh>
+#include <barsread.h>
+#include <stringloader.h>
+#include <eikenv.h>
+#include <akncontext.h>
+#include <akntitle.h>
+#include <eikbtgpc.h>
+#include <e32debug.h>
+#include <gemride.rsg>
+
+#include "gemride.hrh"
+#include "gemrideContainerView.h"
+#include "gemrideContainer.hrh"
+#include "gemrideContainer.h"
+
+CgemrideContainerView::CgemrideContainerView()
+	: iGemrideContainer(NULL), iEngine(NULL)
+	{
+	}
+
+CgemrideContainerView::~CgemrideContainerView()
+	{
+	delete iGemrideContainer;
+	delete iEngine;
+	}
+
+CgemrideContainerView* CgemrideContainerView::NewL()
+	{
+	CgemrideContainerView* self = CgemrideContainerView::NewLC();
+	CleanupStack::Pop(self);
+	return self;
+	}
+
+CgemrideContainerView* CgemrideContainerView::NewLC()
+	{
+	CgemrideContainerView* self = new (ELeave) CgemrideContainerView();
+	CleanupStack::PushL(self);
+	self->ConstructL();
+	return self;
+	}
+
+void CgemrideContainerView::ConstructL()
+	{
+	BaseConstructL(R_GEMRIDE_CONTAINER_GEMRIDE_CONTAINER_VIEW);
+	iEngine = CGeminiEngine::NewL(*this);
+	}
+
+TUid CgemrideContainerView::Id() const
+	{
+	return TUid::Uid(EGemrideContainerViewId);
+	}
+
+void CgemrideContainerView::HandleCommandL(TInt aCommand)
+	{
+	if (aCommand == EAknSoftkeyExit)
+		{
+		AppUi()->HandleCommandL(EEikCmdExit);
+		}
+	}
+
+void CgemrideContainerView::DoActivateL(
+		const TVwsViewId& /*aPrevViewId*/,
+		TUid /*aCustomMessageId*/,
+		const TDesC8& /*aCustomMessage*/)
+	{
+	SetupStatusPaneL();
+
+	if (iGemrideContainer == NULL)
+		{
+		iGemrideContainer = CreateContainerL();
+		iGemrideContainer->SetMopParent(this);
+		AppUi()->AddToStackL(*this, iGemrideContainer);
+		}
+
+	// TODO: Fetch a simple Gemini page
+	_LIT8(KTestUrl, "gemini://zaibatsu.circumlunar.space/~solderpunk/gemlog/");
+	
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->SetLoadingL(ETrue, KTestUrl);
+        }
+
+    iEngine->FetchL(KTestUrl);
+	}
+
+void CgemrideContainerView::DoDeactivate()
+	{
+	CleanupStatusPane();
+
+	if (iGemrideContainer != NULL)
+		{
+		AppUi()->RemoveFromViewStack(*this, iGemrideContainer);
+		delete iGemrideContainer;
+		iGemrideContainer = NULL;
+		}
+	}
+
+void CgemrideContainerView::HandleStatusPaneSizeChange()
+	{
+	CAknView::HandleStatusPaneSizeChange();
+
+	TVwsViewId view;
+	AppUi()->GetActiveViewId(view);
+	if (view.iViewUid == Id())
+		{
+		TInt result;
+		TRAP(result, SetupStatusPaneL());
+		}
+	}
+
+void CgemrideContainerView::SetupStatusPaneL()
+	{
+	TUid contextPaneUid = TUid::Uid(EEikStatusPaneUidContext);
+	CEikStatusPaneBase::TPaneCapabilities subPaneContext =
+		StatusPane()->PaneCapabilities(contextPaneUid);
+	if (subPaneContext.IsPresent() && subPaneContext.IsAppOwned())
+		{
+		CAknContextPane* context = static_cast<CAknContextPane*>(
+			StatusPane()->ControlL(contextPaneUid));
+		context->SetPictureToDefaultL();
+		}
+
+	TUid titlePaneUid = TUid::Uid(EEikStatusPaneUidTitle);
+	CEikStatusPaneBase::TPaneCapabilities subPaneTitle =
+		StatusPane()->PaneCapabilities(titlePaneUid);
+	if (subPaneTitle.IsPresent() && subPaneTitle.IsAppOwned())
+		{
+		CAknTitlePane* title = static_cast<CAknTitlePane*>(
+			StatusPane()->ControlL(titlePaneUid));
+		TResourceReader reader;
+		iEikonEnv->CreateResourceReaderLC(reader, R_GEMRIDE_CONTAINER_TITLE_RESOURCE);
+		title->SetFromResourceL(reader);
+		CleanupStack::PopAndDestroy();
+		}
+	}
+
+void CgemrideContainerView::CleanupStatusPane()
+	{
+	}
+
+CGemrideContainer* CgemrideContainerView::CreateContainerL()
+	{
+	return CGemrideContainer::NewL(ClientRect(), NULL, this);
+	}
+
+void CgemrideContainerView::OnConnecting()
+    {
+    // OnConnecting doesn't have URL - use placeholder
+    // The actual URL is set when FetchL is called
+    }
+
+void CgemrideContainerView::OnBytesReceived(TInt aBytes)
+    {
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->AddBytesReceived(aBytes);
+        }
+    }
+
+void CgemrideContainerView::OnResponseReceived(const TDesC8& aStatus,
+    const TDesC8& aMeta, const TDesC8& aBody)
+    {
+    // Add bytes before processing
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->AddBytesReceived(aBody.Length());
+        }
+
+    HBufC* text = HBufC::NewLC(aBody.Length());
+    TPtr ptr = text->Des();
+    ptr.Copy(aBody);
+
+    if (iGemrideContainer)
+        {
+        TRAPD(err, iGemrideContainer->SetContentL(*text));
+        // SetContentL sets iLoading = EFalse, which stops timer
+        }
+
+    CleanupStack::PopAndDestroy(text);
+    }
+
+void CgemrideContainerView::OnError(TInt aError, const TDesC& aMessage)
+	{
+	CEikonEnv::Static()->InfoMsg(aMessage);
+	}
+
+void CgemrideContainerView::NavigateToL(const TDesC& aUrl)
+    {
+    if (iEngine)
+        {
+        HBufC8* url8 = HBufC8::NewLC(aUrl.Length());
+        url8->Des().Copy(aUrl);
+
+        if (iGemrideContainer)
+            {
+            iGemrideContainer->SetLoadingL(ETrue, *url8);
+            }
+
+        iEngine->FetchL(*url8);
+        CleanupStack::PopAndDestroy(url8);
+        }
+    }

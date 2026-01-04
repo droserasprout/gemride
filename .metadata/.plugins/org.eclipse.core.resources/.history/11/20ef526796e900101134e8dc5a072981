@@ -1,0 +1,439 @@
+/*
+========================================================================
+ Name        : GemrideContainerView.cpp
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+
+#include <aknviewappui.h>
+#include <eikmenub.h>
+#include <avkon.hrh>
+#include <barsread.h>
+#include <stringloader.h>
+#include <eikenv.h>
+#include <akncontext.h>
+#include <akntitle.h>
+#include <eikbtgpc.h>
+#include <e32debug.h>
+#include <gemride.rsg>
+
+#include "gemride.hrh"
+#include "gemrideContainerView.h"
+#include "gemrideContainer.hrh"
+#include "gemrideContainer.h"
+
+CgemrideContainerView::CgemrideContainerView()
+    : iGemrideContainer(NULL), iEngine(NULL), iCurrentUrl(NULL)
+    {
+    }
+
+CgemrideContainerView::~CgemrideContainerView()
+    {
+    delete iGemrideContainer;
+    delete iEngine;
+    delete iCurrentUrl;
+    iHistoryStack.ResetAndDestroy();
+    }
+
+CgemrideContainerView* CgemrideContainerView::NewL()
+	{
+	CgemrideContainerView* self = CgemrideContainerView::NewLC();
+	CleanupStack::Pop(self);
+	return self;
+	}
+
+CgemrideContainerView* CgemrideContainerView::NewLC()
+	{
+	CgemrideContainerView* self = new (ELeave) CgemrideContainerView();
+	CleanupStack::PushL(self);
+	self->ConstructL();
+	return self;
+	}
+
+void CgemrideContainerView::ConstructL()
+	{
+	iEngine = CGeminiEngine::NewL(*this);
+	// [[[ begin generated region: do not modify [Generated Code]
+	BaseConstructL( R_GEMRIDE_CONTAINER_GEMRIDE_CONTAINER_VIEW );
+
+	// ]]] end generated region [Generated Code]
+
+	}
+
+TUid CgemrideContainerView::Id() const
+	{
+	return TUid::Uid(EGemrideContainerViewId);
+	}
+
+void CgemrideContainerView::HandleCommandL(TInt aCommand)
+	{
+	// [[[ begin generated region: do not modify [Generated Code]
+	TBool commandHandled = EFalse;
+	switch ( aCommand )
+		{	// code to dispatch to the AknView's menu and CBA commands is generated here
+		case EGemrideContainerViewBackCommand:
+			GoBackL();
+			commandHandled = ETrue;
+			break;
+		default:
+			break;
+		}
+
+
+	if ( !commandHandled ) 
+		{
+
+		if ( aCommand == EAknSoftkeyExit )
+			{
+			AppUi()->HandleCommandL( EEikCmdExit );
+			}
+
+		}
+	// ]]] end generated region [Generated Code]
+
+	}
+
+void CgemrideContainerView::DoActivateL(
+        const TVwsViewId& /*aPrevViewId*/,
+        TUid /*aCustomMessageId*/,
+        const TDesC8& /*aCustomMessage*/)
+    {
+    SetupStatusPaneL();
+
+    if (iGemrideContainer == NULL)
+        {
+        iGemrideContainer = CreateContainerL();
+        iGemrideContainer->SetMopParent(this);
+        AppUi()->AddToStackL(*this, iGemrideContainer);
+        }
+
+    _LIT8(KStartUrl, "gemini://zaibatsu.circumlunar.space/~solderpunk/gemlog/");
+
+    // Store as current URL
+    delete iCurrentUrl;
+    iCurrentUrl = NULL;
+    iCurrentUrl = KStartUrl().AllocL();
+
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->SetLoadingL(ETrue, KStartUrl);
+        }
+
+    iEngine->FetchL(KStartUrl);
+    UpdateCbaL();
+    }
+
+void CgemrideContainerView::DoDeactivate()
+	{
+	// [[[ begin generated region: do not modify [Generated Contents]
+	CleanupStatusPane();
+
+	if ( iGemrideContainer != NULL )
+		{
+		AppUi()->RemoveFromViewStack( *this, iGemrideContainer );
+		delete iGemrideContainer;
+		iGemrideContainer = NULL;
+		}
+	// ]]] end generated region [Generated Contents]
+
+	}
+
+void CgemrideContainerView::HandleStatusPaneSizeChange()
+	{
+	CAknView::HandleStatusPaneSizeChange();
+
+	TVwsViewId view;
+	AppUi()->GetActiveViewId(view);
+	if (view.iViewUid == Id())
+		{
+		TInt result;
+		TRAP(result, SetupStatusPaneL());
+		}
+	// [[[ begin generated region: do not modify [Generated Code]
+	// ]]] end generated region [Generated Code]
+
+	}
+
+void CgemrideContainerView::SetupStatusPaneL()
+	{
+	// reset the context pane
+	TUid contextPaneUid = TUid::Uid( EEikStatusPaneUidContext );
+	CEikStatusPaneBase::TPaneCapabilities subPaneContext = 
+		StatusPane()->PaneCapabilities( contextPaneUid );
+	if ( subPaneContext.IsPresent() && subPaneContext.IsAppOwned() )
+		{
+		CAknContextPane* context = static_cast< CAknContextPane* > ( 
+			StatusPane()->ControlL( contextPaneUid ) );
+		context->SetPictureToDefaultL();
+		}
+
+	// setup the title pane
+	TUid titlePaneUid = TUid::Uid( EEikStatusPaneUidTitle );
+	CEikStatusPaneBase::TPaneCapabilities subPaneTitle = 
+		StatusPane()->PaneCapabilities( titlePaneUid );
+	if ( subPaneTitle.IsPresent() && subPaneTitle.IsAppOwned() )
+		{
+		CAknTitlePane* title = static_cast< CAknTitlePane* >( 
+			StatusPane()->ControlL( titlePaneUid ) );
+		TResourceReader reader;
+		iEikonEnv->CreateResourceReaderLC( reader, R_GEMRIDE_CONTAINER_TITLE_RESOURCE );
+		title->SetFromResourceL( reader );
+		CleanupStack::PopAndDestroy(); // reader internal state
+		}
+
+	}
+
+void CgemrideContainerView::CleanupStatusPane()
+	{
+	}
+
+CGemrideContainer* CgemrideContainerView::CreateContainerL()
+	{
+	return CGemrideContainer::NewL(ClientRect(), NULL, this);
+	}
+
+void CgemrideContainerView::OnConnecting()
+    {
+    }
+
+void CgemrideContainerView::OnBytesReceived(TInt aBytes)
+    {
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->AddBytesReceived(aBytes);
+        }
+    }
+
+void CgemrideContainerView::OnResponseReceived(const TDesC8& /*aStatus*/,
+    const TDesC8& /*aMeta*/, const TDesC8& aBody)
+    {
+    HBufC* text = HBufC::NewLC(aBody.Length());
+    TPtr ptr = text->Des();
+    ptr.Copy(aBody);
+
+    if (iGemrideContainer)
+        {
+        TRAPD(err, iGemrideContainer->SetContentL(*text));
+        }
+
+    CleanupStack::PopAndDestroy(text);
+    }
+
+void CgemrideContainerView::OnError(TInt /*aError*/, const TDesC& aMessage)
+	{
+	CEikonEnv::Static()->InfoMsg(aMessage);
+	}
+
+void CgemrideContainerView::PushCurrentUrlL()
+    {
+    if (iCurrentUrl && iCurrentUrl->Length() > 0)
+        {
+        HBufC8* urlCopy = iCurrentUrl->AllocLC();
+        iHistoryStack.AppendL(urlCopy);
+        CleanupStack::Pop(urlCopy);
+        }
+    }
+
+void CgemrideContainerView::NavigateToL(const TDesC& aUrl)
+    {
+    if (!iEngine)
+        return;
+
+    HBufC* resolvedUrl = ResolveUrlLC(aUrl);
+
+    // Print bytes to avoid ~ format issue
+    RDebug::Print(_L("NavigateToL: resolved len=%d"), resolvedUrl->Length());
+    TBuf8<256> url8Debug;
+    url8Debug.Copy(resolvedUrl->Left(Min(resolvedUrl->Length(), 256)));
+    //RDebug::Printf("NavigateToL: resolved URL = %.*s", url8Debug.Length(), url8Debug.Ptr());
+
+    PushCurrentUrlL();
+
+    HBufC8* url8 = HBufC8::NewLC(resolvedUrl->Length());
+    url8->Des().Copy(*resolvedUrl);
+
+    delete iCurrentUrl;
+    iCurrentUrl = NULL;
+    iCurrentUrl = url8->AllocL();
+
+    RDebug::Printf("NavigateToL: calling SetLoadingL");
+
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->SetLoadingL(ETrue, *url8);
+        }
+
+    RDebug::Printf("NavigateToL: calling FetchL");
+    iEngine->FetchL(*url8);
+    RDebug::Printf("NavigateToL: FetchL returned");
+
+    CleanupStack::PopAndDestroy(2, resolvedUrl);
+
+    UpdateCbaL();
+    }
+
+
+void CgemrideContainerView::GoBackL()
+    {
+    if (iHistoryStack.Count() == 0)
+        return;
+
+    // Pop last URL from history
+    TInt lastIndex = iHistoryStack.Count() - 1;
+    HBufC8* previousUrl = iHistoryStack[lastIndex];
+    iHistoryStack.Remove(lastIndex);
+
+    // Update current URL (don't push to history - we're going back)
+    delete iCurrentUrl;
+    iCurrentUrl = previousUrl;  // Take ownership
+
+    if (iGemrideContainer)
+        {
+        iGemrideContainer->SetLoadingL(ETrue, *iCurrentUrl);
+        }
+
+    iEngine->FetchL(*iCurrentUrl);
+
+    UpdateCbaL();
+    }
+
+TBool CgemrideContainerView::CanGoBack() const
+    {
+    return iHistoryStack.Count() > 0;
+    }
+
+void CgemrideContainerView::UpdateCbaL()
+    {
+    CEikButtonGroupContainer* cba = Cba();
+    if (!cba)
+        return;
+
+    if (CanGoBack())
+        {
+        cba->SetCommandL(2, EGemrideContainerViewBackCommand, _L("Back"));
+        }
+    else
+        {
+        cba->SetCommandL(2, EAknSoftkeyExit, _L("Exit"));
+        }
+
+    cba->DrawNow();
+    }
+
+HBufC* CgemrideContainerView::ResolveUrlLC(const TDesC& aUrl)
+    {
+    _LIT(KGeminiScheme, "gemini://");
+    const TInt KSchemeLen = 9;
+
+    // Already absolute URL
+    if (aUrl.Length() >= KSchemeLen && aUrl.Left(KSchemeLen).CompareF(KGeminiScheme) == 0)
+        {
+        return aUrl.AllocLC();
+        }
+
+    if (!iCurrentUrl || iCurrentUrl->Length() == 0)
+        {
+        return aUrl.AllocLC();
+        }
+
+    RDebug::Print(_L("ResolveUrl: iCurrentUrl len=%d"), iCurrentUrl->Length());
+
+    // Convert base to 16-bit - allocate exact size needed
+    TInt baseLen = iCurrentUrl->Length();
+    HBufC* base = HBufC::NewLC(baseLen);
+    TPtr basePtr = base->Des();
+
+    // Manual copy to avoid any descriptor issues
+    for (TInt i = 0; i < baseLen; i++)
+        {
+        basePtr.Append(TChar((*iCurrentUrl)[i]));
+        }
+
+    RDebug::Print(_L("ResolveUrl: base len=%d"), base->Length());
+
+    // Find host end
+    TInt hostEnd = KSchemeLen;
+    while (hostEnd < base->Length() && (*base)[hostEnd] != '/')
+        {
+        hostEnd++;
+        }
+
+    RDebug::Print(_L("ResolveUrl: hostEnd=%d"), hostEnd);
+
+    HBufC* result = NULL;
+
+    if (aUrl.Length() > 0 && aUrl[0] == '/')
+        {
+        // Absolute path from host root
+        result = HBufC::NewL(hostEnd + aUrl.Length());
+        result->Des().Copy(base->Left(hostEnd));
+        result->Des().Append(aUrl);
+        }
+    else
+        {
+        // Find last slash for base directory
+        TInt lastSlash = base->Length() - 1;
+        while (lastSlash > hostEnd && (*base)[lastSlash] != '/')
+            {
+            lastSlash--;
+            }
+
+        RDebug::Print(_L("ResolveUrl: lastSlash=%d"), lastSlash);
+
+        // Count ../ prefixes
+        TInt relStart = 0;
+        TInt dirsUp = 0;
+
+        while (relStart + 3 <= aUrl.Length() && aUrl.Mid(relStart, 3).Compare(_L("../")) == 0)
+            {
+            dirsUp++;
+            relStart += 3;
+            }
+
+        if (relStart + 2 == aUrl.Length() && aUrl.Mid(relStart, 2).Compare(_L("..")) == 0)
+            {
+            dirsUp++;
+            relStart += 2;
+            }
+
+        RDebug::Print(_L("ResolveUrl: dirsUp=%d relStart=%d"), dirsUp, relStart);
+
+        // Go up directories from lastSlash
+        TInt baseEnd = lastSlash;
+        for (TInt i = 0; i < dirsUp && baseEnd > hostEnd; i++)
+            {
+            baseEnd--;  // Move before current slash
+            while (baseEnd > hostEnd && (*base)[baseEnd] != '/')
+                {
+                baseEnd--;
+                }
+            }
+
+        RDebug::Print(_L("ResolveUrl: baseEnd=%d"), baseEnd);
+
+        // Build result
+        TPtrC remainder = aUrl.Mid(relStart);
+        TInt resultLen = baseEnd + 1 + remainder.Length();
+        result = HBufC::NewL(resultLen);
+        result->Des().Copy(base->Left(baseEnd + 1));  // Include slash
+        result->Des().Append(remainder);
+
+        RDebug::Print(_L("ResolveUrl: result len=%d"), result->Length());
+        }
+
+    CleanupStack::PopAndDestroy(base);
+    CleanupStack::PushL(result);
+    return result;
+    }
+
+// [[[ begin generated region: do not modify [Generated System Includes]
+// ]]] end generated region [Generated System Includes]
+
+// [[[ begin generated region: do not modify [Generated User Includes]
+
+// ]]] end generated region [Generated User Includes]
+
+// [[[ begin generated region: do not modify [Generated Constants]
+// ]]] end generated region [Generated Constants]

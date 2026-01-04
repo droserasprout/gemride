@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<connections version="1">
+	<connection id="87d57de3-592f-4d9e-aa1c-57f669740eee" type="com.nokia.carbide.trk.support.connection.USBConnectionType" displayName="TRK">
+		<settings>
+			<setting name="port">3</setting>
+			<setting name="parity">None</setting>
+			<setting name="flowControl">None</setting>
+			<setting name="stopBits">1</setting>
+			<setting name="dataBits">8</setting>
+			<setting name="baud">115200</setting>
+		</settings>
+	</connection>
+</connections>

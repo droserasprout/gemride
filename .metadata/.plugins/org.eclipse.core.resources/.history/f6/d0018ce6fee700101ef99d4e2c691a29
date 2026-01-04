@@ -1,0 +1,78 @@
+/*
+ ============================================================================
+ Name		: GeminiEngine.cpp
+ Author	  : Lev Gorodetskii
+ Version	 : 1.0
+ Copyright   : 
+ Description : CGeminiEngine implementation
+ ============================================================================
+ */
+
+#include "GeminiEngine.h"
+
+CGeminiEngine::CGeminiEngine() :
+	CActive(EPriorityStandard) // Standard priority
+	{
+	}
+
+CGeminiEngine* CGeminiEngine::NewLC()
+	{
+	CGeminiEngine* self = new ( ELeave ) CGeminiEngine();
+	CleanupStack::PushL(self);
+	self->ConstructL();
+	return self;
+	}
+
+CGeminiEngine* CGeminiEngine::NewL()
+	{
+	CGeminiEngine* self = CGeminiEngine::NewLC();
+	CleanupStack::Pop(); // self;
+	return self;
+	}
+
+void CGeminiEngine::ConstructL()
+	{
+	User::LeaveIfError(iTimer.CreateLocal() ); // Initialize timer
+	CActiveScheduler::Add( this); // Add to scheduler
+	}
+
+CGeminiEngine::~CGeminiEngine()
+	{
+	Cancel(); // Cancel any request, if outstanding
+	iTimer.Close(); // Destroy the RTimer object
+	// Delete instance variables if any
+	}
+
+void CGeminiEngine::DoCancel()
+	{
+	iTimer.Cancel();
+	}
+
+void CGeminiEngine::StartL(TTimeIntervalMicroSeconds32 aDelay)
+	{
+	Cancel(); // Cancel any request, just to be sure
+	iState = EUninitialized;
+	iTimer.After(iStatus, aDelay); // Set for later
+	SetActive(); // Tell scheduler a request is active
+	}
+
+void CGeminiEngine::RunL()
+	{
+	if (iState == EUninitialized)
+		{
+		// Do something the first time RunL() is called
+		iState = EInitialized;
+		}
+	else
+		if (iState != EError)
+			{
+			// Do something
+			}
+	iTimer.After(iStatus, 1000000); // Set for 1 sec later
+	SetActive(); // Tell scheduler a request is active
+	}
+
+TInt CGeminiEngine::RunError(TInt aError)
+	{
+	return aError;
+	}

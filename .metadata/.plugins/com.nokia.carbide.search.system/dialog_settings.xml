@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="">
+		<item value="1000" key="com.nokia.carbide.search.system.resultpage.limit"/>
+	</section>
+	<section name="">
+		<item value="1000" key="com.nokia.carbide.search.system.resultpage.limit"/>
+	</section>
+	<section name="com.nokia.carbide.search.system.text.FileSearchResultPage">
+		<item value="1000" key="com.nokia.carbide.search.system.resultpage.limit"/>
+	</section>
+	<section name="TextSearchPage">
+		<item value="false" key="CASE_SENSITIVE"/>
+		<item value="false" key="REG_EX_SEARCH"/>
+		<item value="false" key="SEARCH_DERIVED"/>
+		<item value="false" key="INCLUDE_SUBFOLDERS"/>
+		<item value="false" key="INCLUDE_HIDDEN"/>
+		<item value="2" key="HISTORY_SIZE"/>
+		<list key="ADDED_FILENAMES">
+			<item value="*.cpp"/>
+		</list>
+		<list key="ADDED_FOLDERS">
+			<item value="C:\Symbian\Carbide\workspace\gemride"/>
+		</list>
+		<section name="HISTORY0">
+			<item value="false" key="includeSubfolders"/>
+			<item value="Go to" key="textPattern"/>
+			<item value="4" key="scope"/>
+			<item value="false" key="regExSearch"/>
+			<item value="false" key="includeHidden"/>
+			<item value="false" key="caseSensitive"/>
+			<item value="C:\Symbian\Carbide\workspace\gemride" key="folderName"/>
+			<item value="false" key="includeArchives"/>
+			<list key="fileNames">
+				<item value="*.cpp"/>
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="includeSubfolders"/>
+			<item value="gemini://" key="textPattern"/>
+			<item value="4" key="scope"/>
+			<item value="false" key="regExSearch"/>
+			<item value="false" key="includeHidden"/>
+			<item value="false" key="caseSensitive"/>
+			<item value="C:\Symbian\Carbide\workspace\gemride" key="folderName"/>
+			<item value="false" key="includeArchives"/>
+			<list key="fileNames">
+				<item value="*.cpp"/>
+			</list>
+		</section>
+	</section>
+</section>

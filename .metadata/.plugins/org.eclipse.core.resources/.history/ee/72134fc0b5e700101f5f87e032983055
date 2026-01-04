@@ -1,0 +1,35 @@
+/*
+========================================================================
+ Name        : gemrideContainer.rssi
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#include "gemrideContainer.loc"
+
+RESOURCE AVKON_VIEW r_gemride_container_gemride_container_view
+	{
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	menubar = r_gemride_container_options_menu;
+	toolbar = 0;
+	}
+RESOURCE MENU_BAR r_gemride_container_options_menu
+	{
+	}
+RESOURCE STATUS_PANE_APP_MODEL r_gemride_container_status_pane
+	{
+	panes =
+		{
+		SPANE_PANE
+			{
+			id = EEikStatusPaneUidTitle;
+			type = EAknCtTitlePane;
+			resource = r_gemride_container_title_resource;
+			}
+		};
+	}
+RESOURCE TITLE_PANE r_gemride_container_title_resource
+	{
+	txt = STR_gemrideContainerView_4;
+	}

@@ -1,0 +1,11 @@
+/*
+========================================================================
+ Name        : gemride.loc
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#ifdef LANGUAGE_01
+#include "gemride.l01"
+#endif

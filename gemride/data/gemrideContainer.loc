@@ -1,0 +1,11 @@
+/*
+========================================================================
+ Name        : gemrideContainer.loc
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#ifdef LANGUAGE_01
+#include "gemrideContainer.l01"
+#endif

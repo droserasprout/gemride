@@ -1,0 +1,40 @@
+/*
+========================================================================
+ Name        : gemrideAppUi.h
+ Author      : Lev Gorodetskii
+ Description : Application UI
+========================================================================
+*/
+#ifndef GEMRIDEAPPUI_H
+#define GEMRIDEAPPUI_H
+
+#include <aknviewappui.h>
+
+class CgemrideContainerView;
+
+class CgemrideAppUi : public CAknViewAppUi
+    {
+public: 
+    CgemrideAppUi();
+    virtual ~CgemrideAppUi();
+    void ConstructL();
+    void NavigateToL(const TDesC& aUrl);
+
+public:
+    TKeyResponse HandleKeyEventL(
+                const TKeyEvent& aKeyEvent,
+                TEventCode aType);
+    void HandleCommandL(TInt aCommand);
+    void HandleResourceChangeL(TInt aType);
+    void HandleViewDeactivation( 
+            const TVwsViewId& aViewIdToBeDeactivated, 
+            const TVwsViewId& aNewlyActivatedViewId);
+
+private:
+    void InitializeContainersL();
+
+private: 
+    CgemrideContainerView* iGemrideContainerView;
+    };
+
+#endif // GEMRIDEAPPUI_H

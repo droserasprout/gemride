@@ -1,0 +1,26 @@
+Source upgrading log for project 'gemride' (Jan 3, 2026 2:41:41 AM)
+
+FAILED PATCHES
+================
+
+SKIPPED PATCHES
+================
+
+APPLIED PATCHES
+================
+
+Description:	Patch #1: Remove call to SetupStatusPaneL() from HandleStatusPaneSizeChange()
+Location:		src/GemrideContainerView.cpp (in function(CgemrideContainerView::HandleStatusPaneSizeChange()))
+Component:		com.nokia.sdt.series60.CAknView, upgrading version 1.1.0 to 1.2.0
+Unified diff:
+
+	- TInt result;
+	- TRAP( result, SetupStatusPaneL() ); 
+	+ TVwsViewId view;
+	+ AppUi()->GetActiveViewId( view );
+	+ if ( view.iViewUid == Id() )
+	+ 	{
+	+ 	TInt result;
+	+ 	TRAP( result, SetupStatusPaneL() );
+	+ 	}
+

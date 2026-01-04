@@ -1,0 +1,12 @@
+/*
+========================================================================
+ Name        : gemrideContainer.hrh
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+enum TGemrideContainerViewCommands
+	{
+	EGemrideContainerViewGo_toMenuItemCommand = 0x6000
+	};

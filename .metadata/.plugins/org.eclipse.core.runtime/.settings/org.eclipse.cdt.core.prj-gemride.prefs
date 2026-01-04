@@ -1,0 +1,14 @@
+#Sat Jan 03 02:41:41 UYST 2026
+indexer/indexerId=org.eclipse.cdt.core.fastIndexer
+indexer/indexUnusedHeadersWithDefaultLang=false
+indexer/skipImplicitReferences=false
+indexer/indexImportLocation=.settings/cdt-index.zip
+indexer/filesToParseUpFront=e32base.h
+indexer/skipTypeReferences=false
+indexer/indexUnusedHeadersWithAlternateLang=false
+indexer/skipReferences=false
+indexer/skipMacroReferences=false
+indexer/indexAllFiles=true
+eclipse.preferences.version=1
+indexer/useHeuristicIncludeResolution=true
+indexer/preferenceScope=1

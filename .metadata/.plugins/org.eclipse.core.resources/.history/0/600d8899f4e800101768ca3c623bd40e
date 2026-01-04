@@ -1,0 +1,14 @@
+/*
+========================================================================
+ Name        : gemrideContainer.l01
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+// localized strings for language: UK English (01)
+#define STR_gemrideContainerView_2 ""
+#define STR_gemrideContainerView_3 ""
+#define STR_gemrideContainerView_4 "gemrideContainer"
+#define STR_gemrideContainerView_1 ""
+#define STR_gemrideContainerView_6 "Go to"

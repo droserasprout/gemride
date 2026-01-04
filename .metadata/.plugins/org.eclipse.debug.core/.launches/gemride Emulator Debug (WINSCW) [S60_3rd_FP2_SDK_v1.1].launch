@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.nokia.cdt.debug.launch.emulationLaunch">
+<booleanAttribute key="DebugTraceLaunchSetting" value="true"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_ACCESS_VIOLATION" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_ARRAY_BOUNDS_EXCEEDED" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_CONTROL_BREAK" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_CONTROL_C" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_DATATYPE_MISALIGNMENT" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_DLL_INIT_FAIL" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_DLL_NOT_FOUND" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_DENORMAL_OPERAND" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_DIVIDE_BY_ZERO" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_INEXACT_RESULT" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_INVALID_OPERATION" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_OVERFLOW" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_STACK_CHECK" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_FLT_UNDERFLOW" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_ILLEGAL_INSTRUCTION" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_INT_DIVIDE_BY_ZERO" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_INT_OVERFLOW" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_INVALID_DISPOSITION" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_IN_PAGE_ERROR" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_MS_CPLUS" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_NONCONTINUABLE_EXCEPTION" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_NO_MEMORY" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_PRIV_INSTRUCTION" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_STACK_OVERFLOW" value="false"/>
+<stringAttribute key="com.freescale.cdt.debug.cw.core.settings.DebuggerCommonData.Host App Path" value=""/>
+<stringAttribute key="com.nokia.cdt.debug.cw.symbian.Epoc_Root" value="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\"/>
+<stringAttribute key="com.nokia.cdt.debug.cw.symbian.PN_ExecutablesToDebug" value=""/>
+<booleanAttribute key="com.nokia.cdt.debug.cw.symbian.PN_IsSystemModeDebug" value="false"/>
+<booleanAttribute key="com.nokia.cdt.debug.cw.symbian.PN_SupportOSView" value="false"/>
+<intAttribute key="com.nokia.cdt.debug.cw.symbian.PN_SymbolLoadingRule" value="2"/>
+<booleanAttribute key="com.nokia.cdt.debug.cw.symbian.PN_ViewProcessOutput" value="false"/>
+<booleanAttribute key="com.nokia.cdt.debug.cw.symbian.PN_ViewSystemMessage" value="false"/>
+<intAttribute key="com.nokia.cdt.debug.cw.symbian.SettingsData.LCS_ExecutableTargetingRule" value="0"/>
+<intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="com.nokia.cdt.debug.cw.symbian.SymbianDebugger"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
+<booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="E32Main"/>
+<booleanAttribute key="org.eclipse.cdt.launch.ENABLE_REGISTER_BOOKKEEPING" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.launch.ENABLE_VARIABLE_BOOKKEEPING" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\release\winscw\udeb\gemride.exe"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="gemride"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="Emulator Debug (WINSCW) [S60_3rd_FP2_SDK_v1.1]"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/gemride"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="originalName" value="gemride Emulator Debug (WINSCW) [S60_3rd_FP2_SDK_v1.1]"/>
+<stringAttribute key="process_factory_id" value="com.freescale.cdt.debug.cw.core.ProcessFactoryID"/>
+</launchConfiguration>

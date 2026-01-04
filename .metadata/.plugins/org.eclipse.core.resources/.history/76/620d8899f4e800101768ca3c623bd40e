@@ -1,0 +1,65 @@
+/*
+========================================================================
+ Name        : GemrideContainerView.h
+ Author      : Lev Gorodetskii
+ Description : Main view with Gemini engine and navigation history
+========================================================================
+*/
+
+#ifndef GEMRIDECONTAINERVIEW_H
+#define GEMRIDECONTAINERVIEW_H
+
+#include <aknview.h>
+
+#include "GeminiObserver.h"
+#include "GeminiEngine.h"
+
+class CGemrideContainer;
+
+class CgemrideContainerView : public CAknView, public MGeminiObserver
+    {
+public:
+    CgemrideContainerView();
+    virtual ~CgemrideContainerView();
+
+    static CgemrideContainerView* NewL();
+    static CgemrideContainerView* NewLC();
+    void ConstructL();
+
+    TUid Id() const;
+    void HandleCommandL(TInt aCommand);
+
+    // From MGeminiObserver
+    void OnConnecting();
+    void OnBytesReceived(TInt aBytes);
+    void OnResponseReceived(const TDesC8& aStatus, 
+        const TDesC8& aMeta, const TDesC8& aBody);
+    void OnError(TInt aError, const TDesC& aMessage);
+
+    CGemrideContainer* CreateContainerL();
+    void NavigateToL(const TDesC& aUrl);
+    void GoBackL();
+    TBool CanGoBack() const;
+
+protected:
+    void DoActivateL(
+        const TVwsViewId& aPrevViewId,
+        TUid aCustomMessageId,
+        const TDesC8& aCustomMessage);
+    void DoDeactivate();
+    void HandleStatusPaneSizeChange();
+
+private:
+    void SetupStatusPaneL();
+    void CleanupStatusPane();
+    void UpdateCbaL();
+    void PushCurrentUrlL();
+
+private:
+    CGeminiEngine* iEngine;
+    CGemrideContainer* iGemrideContainer;
+    HBufC8* iCurrentUrl;
+    RPointerArray<HBufC8> iHistoryStack;
+    };
+
+#endif // GEMRIDECONTAINERVIEW_H

@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="39" version="2.0">
+<workbenchAdvisor/>
+<window height="709" maximized="true" width="1024" x="51" y="-15">
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.ui.navigator.ProjectExplorer"/>
+<orientation position="512" view="com.nokia.carbide.cpp.project.ui.views.SymbianProjectNavigatorView"/>
+<orientation position="512" view="org.eclipse.ui.views.ResourceNavigator"/>
+<orientation position="512" view="org.eclipse.ui.views.ProblemView"/>
+<orientation position="512" view="org.eclipse.ui.console.ConsoleView"/>
+<orientation position="512" view="org.eclipse.pde.runtime.LogView"/>
+</fastViewData>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="99" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.nokia.carbide.cpp.mmpEditor.MMPEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.nokia.sdt.symbian.ui.appeditor.ApplicationEditor" itemType="typePlaceholder" x="138" y="22"/>
+<coolItem id="com.nokia.sdt.uidesigner.viewEditor" itemType="typePlaceholder" x="536" y="22"/>
+<coolItem id="org.eclipse.cdt.ui.CElementCreationActionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="89" y="22"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.WorkingSetActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="38" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1767378239406" focus="true" label="Workspace - Debug">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="GemrideContainerView.cpp" partName="GemrideContainerView.cpp" path="C:/Symbian/Carbide/workspace/gemride/src/GemrideContainerView.cpp" title="GemrideContainerView.cpp" tooltip="gemride/src/GemrideContainerView.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/gemride/src/GemrideContainerView.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6736" selectionTopPixel="3026"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="GemrideContainerView.h" partName="GemrideContainerView.h" path="C:/Symbian/Carbide/workspace/gemride/inc/GemrideContainerView.h" title="GemrideContainerView.h" tooltip="gemride/inc/GemrideContainerView.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/gemride/inc/GemrideContainerView.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="20" selectionOffset="1124" selectionTopPixel="629"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideContainer.cpp" partName="gemrideContainer.cpp" path="C:/Symbian/Carbide/workspace/gemride/src/gemrideContainer.cpp" title="gemrideContainer.cpp" tooltip="gemride/src/gemrideContainer.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/gemride/src/gemrideContainer.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="33" selectionOffset="14249" selectionTopPixel="7735"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideAppUi.cpp" partName="gemrideAppUi.cpp" path="C:/Symbian/Carbide/workspace/gemride/src/gemrideAppUi.cpp" title="gemrideAppUi.cpp" tooltip="gemride/src/gemrideAppUi.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/gemride/src/gemrideAppUi.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3873" selectionTopPixel="2152"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="GeminiEngine.cpp" partName="GeminiEngine.cpp" path="C:/Symbian/Carbide/workspace/gemride/src/GeminiEngine.cpp" title="GeminiEngine.cpp" tooltip="gemride/src/GeminiEngine.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/gemride/src/GeminiEngine.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="9911" selectionTopPixel="6103"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.ui.typeHierarchy" partName="Type Hierarchy">
+<viewState filterFields="false" filterNonPublic="false" filterStatic="false" showFilesInLabels="false" showInheritedMembers="false" splitterWeight1="350" splitterWeight2="650" viewOrientation="0"/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.debug.ui.executablesView" partName="Executables">
+<viewState orderTypeEXE="0" orderTypeSF="0" orderValueEXE="-1" orderValueSF="-1" visibleColumns="Executable Name,Executable Project,Executable Location,Source File Name,Source File Location"/>
+</view>
+<view id="com.nokia.carbide.remoteconnections.view.ConnectionsView" partName="Remote Connections">
+<viewState/>
+</view>
+<view id="org.eclipse.pde.runtime.LogView" partName="Error Log">
+<viewState activate="true" allSessions="true" column2="300" column3="150" column4="150" error="true" groupBy="0" info="true" limit="50" ok="true" orderType="2" orderValue="-1" show_filter_text="true" useLimit="true" warning="true"/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="304" org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.priorityField="20" org.eclipse.ui.ide.resourceField="94"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="com.nokia.carbide.search.system.ui.views.SearchView" partName="System Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" com.nokia.carbide.search.system.lastActivation="0"/>
+<view IMemento.internal.id="com.nokia.carbide.search.system.text.FileSearchResultPage" com.nokia.carbide.search.system.lastActivation="1" com.nokia.carbide.search.system.resultpage.limit="1000" com.nokia.carbide.search.system.resultpage.sorting="2"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.debug.ui.DisassemblyView" partName="Disassembly">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>
+<filter element="*.something" isEnabled="false"/>
+<filter element=".*" isEnabled="false"/>
+</filters>
+<expanded>
+<element path="/gemride"/>
+<element path="/gemride/inc"/>
+<element path="/gemride/src"/>
+</expanded>
+<selection>
+<element path="/gemride/gemrideContainer.uidesign"/>
+</selection>
+</viewState>
+</view>
+<view id="org.eclipse.cdt.ui.callHierarchy" partName="Call Hierarchy">
+<viewState showFilesInLabels="false" variableFilter="false"/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.creationTimeField" categoryGroup="org.eclipse.ui.ide.allMarkers.severity" markerContentGenerator="com.nokia.carbide.cpp.project.ui.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (6 items)"/>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.creationTimeField="90" org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="216" org.eclipse.ui.ide.severityAndDescriptionField="460"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.creationTimeField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.ui.includeBrowser" partName="Include Browser">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.debug.ui.DebugView" activePerspective="org.eclipse.debug.ui.DebugPerspective">
+<perspective editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.nokia.carbide.cpp.internal.project.ui.perspective.CarbideCppPerspectiveFactory" id="com.nokia.carbide.cpp.CarbideCppPerspective" label="Carbide C/C++"/>
+<alwaysOnActionSet id="com.freescale.openSourceHeader.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.bugreport.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.displayReleaseNotes"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.capabilityScanner.capScannerActionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.codescanner.CSScanActionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.pi.wizards.actionSet"/>
+<alwaysOnActionSet id="AAA.com.nokia.carbide.cpp.ui.CarbideMenu"/>
+<alwaysOnActionSet id="com.nokia.carbide.remoteConnections.OnDevice.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.search.system.searchActionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.updater.actionSet"/>
+<alwaysOnActionSet id="com.nokia.s60tools.apiquery.ui.actionSet"/>
+<alwaysOnActionSet id="com.nokia.s60tools.appdep.ui.actionSet"/>
+<alwaysOnActionSet id="com.trolltech.qtcppproject.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.SearchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.CElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.buildConfigActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.NavigationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.ui.OpenActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="com.nokia.carbide.cpp.project.ui.views.SymbianProjectNavigatorView"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.ConvertToMakeWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewCWizard1"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewCWizard2"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewSourceFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewHeaderFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.cdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="com.nokia.carbide.cpp.project.ui.wizards.NewProjectWizard"/>
+<new_wizard_action id="com.nokia.carbide.cpp.project.ui.wizards.NewClassWizard"/>
+<new_wizard_action id="com.nokia.carbide.cpp.project.ui.mmpWizard"/>
+<new_wizard_action id="com.nokia.carbide.cpp.qt.ui.wizard.NewQtCppProjectWizard"/>
+<new_wizard_action id="com.nokia.sdt.series60.viewwizard.ViewWizard"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
+<perspective_action id="com.trolltech.qtcppproject.QtCppPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.cdt.ui.includeBrowser"/>
+<view id="org.eclipse.cdt.ui.callHierarchy"/>
+<view id="org.eclipse.cdt.ui.typeHierarchy"/>
+<view id="org.eclipse.cdt.debug.ui.executablesView"/>
+<view id="com.nokia.carbide.remoteconnections.view.ConnectionsView"/>
+<view id="com.nokia.carbide.search.system.ui.views.SearchView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViews>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.29973823"/>
+</fastViews>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.views.ResourceNavigator" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ResourceNavigator" label="Navigator"/>
+<page content="com.nokia.carbide.cpp.project.ui.views.SymbianProjectNavigatorView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1146" ratioRight="382" relationship="2" relative="topLeft">
+<folder appearance="2" expanded="2">
+<page content="com.nokia.s60tools.apiquery.ui.views.main.MainView" label="LabelNotFound"/>
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.20393443" ratioLeft="311" ratioRight="1214" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.7138103" ratioLeft="429" ratioRight="172" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.cdt.ui.includeBrowser" label="Include Browser"/>
+<page content="org.eclipse.cdt.ui.callHierarchy" label="Call Hierarchy"/>
+<page content="org.eclipse.cdt.ui.typeHierarchy" label="Type Hierarchy"/>
+<page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
+<page content="com.nokia.carbide.remoteconnections.view.ConnectionsView" label="Remote Connections"/>
+<page content="com.nokia.carbide.search.system.ui.views.SearchView" label="System Search"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="topRight" ratio="0.7495637" ratioLeft="859" ratioRight="287" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="com.freescale.openSourceHeader.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.codescanner.CSScanActionSet"/>
+<alwaysOnActionSet id="AAA.com.nokia.carbide.cpp.ui.CarbideMenu"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.displayReleaseNotes"/>
+<alwaysOnActionSet id="com.nokia.carbide.updater.actionSet"/>
+<alwaysOnActionSet id="com.nokia.s60tools.appdep.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.WorkingSetActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.bugreport.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.capabilityScanner.capScannerActionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.cpp.pi.wizards.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.remoteConnections.OnDevice.actionSet"/>
+<alwaysOnActionSet id="com.nokia.carbide.search.system.searchActionSet"/>
+<alwaysOnActionSet id="com.nokia.s60tools.apiquery.ui.actionSet"/>
+<alwaysOnActionSet id="com.trolltech.qtcppproject.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="com.nokia.cdt.debug.cw.symbian.ui.executables.ExecutablesView"/>
+<show_view_action id="com.nokia.cdt.debug.kernelaware.ui.SymbianOSView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.SignalsView"/>
+<show_view_action id="org.eclipse.debug.ui.RegisterView"/>
+<show_view_action id="org.eclipse.debug.ui.MemoryView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.DisassemblyView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.ModulesView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<perspective_action id="com.nokia.carbide.cpp.CarbideCppPerspective"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.cdt.debug.ui.executablesView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="com.nokia.carbide.remoteconnections.view.ConnectionsView"/>
+<view id="org.eclipse.ui.views.ProgressView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.cdt.debug.ui.DisassemblyView"/>
+<fastViews>
+<view id="org.eclipse.pde.runtime.LogView" ratio="0.28403142"/>
+</fastViews>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@18eb0a5">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView" ratio="0.47081968" ratioLeft="718" ratioRight="807" relationship="2" relative="org.eclipse.ui.internal.ViewStack@18eb0a5">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@16556ab" ratio="0.75" ratioLeft="1146" ratioRight="382" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="com.nokia.carbide.remoteconnections.view.ConnectionsView" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="com.nokia.carbide.remoteconnections.view.ConnectionsView" label="Remote Connections"/>
+<page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
+<page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.ModuleView" label="LabelNotFound"/>
+<page content="com.nokia.cdt.debug.kernelaware.ui.SymbianOSView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1146" ratioRight="382" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7936772" ratioLeft="477" ratioRight="124" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.views.TaskList" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@75232a" ratio="0.5" ratioLeft="764" ratioRight="764" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
+<folder activePageID="org.eclipse.cdt.debug.ui.DisassemblyView" appearance="2" expanded="2">
+<page content="org.eclipse.cdt.debug.ui.DisassemblyView" label="Disassembly"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.debug.ui.ExpressionView" ratio="0.5" ratioLeft="764" ratioRight="764" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@13abaf3" ratio="0.5" ratioLeft="764" ratioRight="764" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.classic.WorkbenchPresentationFactoryClassic"/>
+</folder>
+</info>
+<info part="org.eclipse.cdt.debug.ui.SignalsView" ratio="0.5" ratioLeft="764" ratioRight="764" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+<info part="org.eclipse.cdt.debug.ui.ModulesView" ratio="0.5" ratioLeft="764" ratioRight="764" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1d34de" ratio="0.29324895" ratioLeft="139" ratioRight="335" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.2495637" ratioLeft="286" ratioRight="860" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d34de"/>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/gemride/src/GemrideContainerView.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/gemride/src/gemrideAppUi.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/gemride/src/gemrideContainer.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/gemride/inc/GemrideContainerView.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/gemride/src/GeminiEngine.cpp"/>
+</editors>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="gemrideAppUi.cpp" index="1">
+<position info="not_deleted" x="3867" y="0"/>
+</item>
+<item historyLabel="gemrideContainer.cpp" index="2">
+<position info="not_deleted" x="14440" y="0"/>
+</item>
+<item historyLabel="gemrideContainer.cpp" index="2">
+<position info="not_deleted" x="2910" y="1"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="1262" y="21"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="2424" y="37"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="1098" y="23"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="2424" y="37"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="1098" y="23"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="2424" y="37"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="1098" y="23"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="707" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="2424" y="37"/>
+</item>
+<item historyLabel="GemrideContainerView.h" index="3">
+<position info="not_deleted" x="1124" y="20"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="836" y="0"/>
+</item>
+<item historyLabel="gemrideContainer.cpp" index="2">
+<position info="not_deleted" x="2850" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="1704" y="37"/>
+</item>
+<item historyLabel="gemrideContainer.cpp" index="2">
+<position info="not_deleted" x="22552" y="38"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="1704" y="37"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7910" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7917" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7961" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7976" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7995" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="8028" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="8136" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7910" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7917" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7917" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7915" y="0"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="6527" y="0"/>
+</item>
+<item historyLabel="gemrideContainer.cpp" index="2">
+<position info="not_deleted" x="22552" y="38"/>
+</item>
+<item historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7009" y="0"/>
+</item>
+<item historyLabel="GeminiEngine.cpp" index="4">
+<position info="not_deleted" x="9911" y="0"/>
+</item>
+<item historyLabel="gemrideContainer.cpp" index="2">
+<position info="not_deleted" x="14249" y="33"/>
+</item>
+<item active="true" historyLabel="GemrideContainerView.cpp" index="0">
+<position info="not_deleted" x="7009" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="com.nokia.carbide.cpp.news.contributions.toolbar.trim"/>
+<trimItem IMemento.internal.id="com.nokia.carbide.remoteConnections.contributions.toolbar.trim"/>
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GeminiEngine.cpp" tooltip="gemride/src/GeminiEngine.cpp">
+<persistable path="/gemride/src/GeminiEngine.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="gemrideContainer.uidesign" tooltip="gemride/gemrideContainer.uidesign">
+<persistable path="/gemride/gemrideContainer.uidesign"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideAppUi.cpp" tooltip="gemride/src/gemrideAppUi.cpp">
+<persistable path="/gemride/src/gemrideAppUi.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideContainer.cpp" tooltip="gemride/src/gemrideContainer.cpp">
+<persistable path="/gemride/src/gemrideContainer.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideContainer.hrh" tooltip="gemride/inc/gemrideContainer.hrh">
+<persistable path="/gemride/inc/gemrideContainer.hrh"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideContainer.h" tooltip="gemride/inc/gemrideContainer.h">
+<persistable path="/gemride/inc/gemrideContainer.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GeminiEngine.h" tooltip="gemride/inc/GeminiEngine.h">
+<persistable path="/gemride/inc/GeminiEngine.h"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="coecntrl.h" tooltip="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\include\coecntrl.h">
+<persistable path="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\include\coecntrl.h" project="gemride"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="e32cmn.h" tooltip="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\include\e32cmn.h">
+<persistable path="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\include\e32cmn.h" project="gemride"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="e32base.h" tooltip="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\include\e32base.h">
+<persistable path="C:\S60\devices\S60_3rd_FP2_SDK_v1.1\epoc32\include\e32base.h" project="gemride"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.nokia.sdt.symbian.ui.appeditor.ApplicationEditor" name="application.uidesign" tooltip="gemride/application.uidesign">
+<persistable path="/gemride/application.uidesign"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gemrideApplication.cpp" tooltip="gemride/src/gemrideApplication.cpp">
+<persistable path="/gemride/src/gemrideApplication.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="GemrideContainerView.h" tooltip="gemride/inc/GemrideContainerView.h">
+<persistable path="/gemride/inc/GemrideContainerView.h"/>
+</file>
+</mruList>
+</workbench>

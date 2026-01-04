@@ -1,0 +1,173 @@
+/*
+========================================================================
+ Name        : gemrideContainer.h
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+
+#ifndef GEMRIDECONTAINER_H
+#define GEMRIDECONTAINER_H
+
+#include <coecntrl.h>
+#include <e32base.h>  // For CPeriodic
+#include "GemtextParser.h"
+
+class MEikCommandObserver;
+
+/**
+ * Represents a single display line (extensible for links later)
+ */
+struct TGeminiLine
+	{
+	enum TLineType
+		{
+		EText,
+		EHeader1,
+		EHeader2,
+		EHeader3,
+		ELink,
+		EPreformatted,
+		EQuote,
+		EListItem
+		};
+
+	TPtrC iText;        // Display text
+	TLineType iType;    // Line type for styling
+	TPtrC iLinkUrl;     // URL if this is a link (empty otherwise)
+	};
+
+/**
+ * Container class for gemrideContainer
+ */
+class CGemrideContainer : public CCoeControl
+	{
+public:
+	CGemrideContainer();
+	virtual ~CGemrideContainer();
+
+	static CGemrideContainer* NewL(
+		const TRect& aRect,
+		const CCoeControl* aParent,
+		MEikCommandObserver* aCommandObserver);
+	static CGemrideContainer* NewLC(
+		const TRect& aRect,
+		const CCoeControl* aParent,
+		MEikCommandObserver* aCommandObserver);
+	void ConstructL(
+		const TRect& aRect,
+		const CCoeControl* aParent,
+		MEikCommandObserver* aCommandObserver);
+
+public:
+	// from CCoeControl
+	TInt CountComponentControls() const;
+	CCoeControl* ComponentControl(TInt aIndex) const;
+	TKeyResponse OfferKeyEventL(const TKeyEvent& aKeyEvent, TEventCode aType);
+	void HandleResourceChange(TInt aType);
+
+	// Content management
+	void SetContentL(const TDesC& aText);
+    void SetLoadingL(TBool aLoading, const TDesC8& aUrl);
+    void AddBytesReceived(TInt aBytes);
+
+	// Scrolling
+	void ScrollUp(TInt aLines = 1);
+	void ScrollDown(TInt aLines = 1);
+	void PageUp();
+	void PageDown();
+
+    void ActivateSelectedLinkL();
+
+	void LayoutControls();
+	void InitializeControlsL();
+   
+protected:
+	// from CCoeControl
+	void SizeChanged();
+
+private:
+	// from CCoeControl
+	void Draw(const TRect& aRect) const;
+
+	// Content parsing
+	void ParseContentL();
+	void WrapLineL(const TDesC& aLine, TGeminiLine::TLineType aType, const TDesC& aLinkUrl);
+	TInt LinesPerPage() const;
+
+    TInt FindWrapPosition(const TDesC& aText, TInt aMaxChars) const;  // Only once!
+    TInt FindNextLink(TInt aCurrentIndex, TInt aDirection) const;
+    TInt GetLineIndexForLink(TInt aLinkIndex) const;
+    void EnsureLinkVisible();
+    TBool IsLinkVisible(TInt aLinkIndex) const;
+
+    static TInt LoadingTimerCallback(TAny* aPtr);
+    
+private:
+	HBufC* iContent;
+    CGemtextParser* iParser;
+    TBool iLoading;
+    TInt iScrollOffset;    // Current scroll position (in lines)
+    TInt iTotalLines;      // Total wrapped lines (for scroll limit)
+
+	// Parsed lines for display
+	RArray<TGeminiLine> iLines;
+	TInt iCharsPerLine;         // Calculated on size change
+
+	// For future link navigation
+    TInt iSelectedLink;      // Index of selected link in iParser (-1 = none)
+    TInt iLinkCount;         // Total number of links
+    
+    HBufC* iCurrentUrl;
+    TInt iPageBytes;
+    TInt iTotalBytes;
+    CPeriodic* iLoadingTimer;
+	// [[[ begin generated region: do not modify [Generated Methods]
+public: 
+	// ]]] end generated region [Generated Methods]
+	
+	// [[[ begin generated region: do not modify [Generated Type Declarations]
+public: 
+	// ]]] end generated region [Generated Type Declarations]
+	
+	// [[[ begin generated region: do not modify [Generated Instance Variables]
+private: 
+	// ]]] end generated region [Generated Instance Variables]
+	
+	
+	// [[[ begin [Overridden Methods]
+protected: 
+	// ]]] end [Overridden Methods]
+	
+	
+	// [[[ begin [User Handlers]
+protected: 
+	// ]]] end [User Handlers]
+	
+public: 
+	enum TControls
+		{
+		// [[[ begin generated region: do not modify [Generated Contents]
+		
+		// ]]] end generated region [Generated Contents]
+		
+		// add any user-defined entries here...
+		
+		ELastControl
+		};
+    };
+
+
+#endif // GEMRIDECONTAINER_H
+// [[[ begin generated region: do not modify [Generated Includes]
+// ]]] end generated region [Generated Includes]
+
+
+// [[[ begin [Event Handler Includes]
+// ]]] end [Event Handler Includes]
+
+// [[[ begin generated region: do not modify [Generated Forward Declarations]
+class MEikCommandObserver;		
+// ]]] end generated region [Generated Forward Declarations]
+

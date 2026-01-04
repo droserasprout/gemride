@@ -1,0 +1,310 @@
+///*
+// ============================================================================
+// Name		: GeminiEngine.cpp
+// Author	  : Lev Gorodetskii
+// Version	 : 1.0
+// Copyright   : 
+// Description : CGeminiEngine implementation
+// ============================================================================
+// */
+//
+//#include "GeminiEngine.h"
+//
+//CGeminiEngine::CGeminiEngine() :
+//	CActive(EPriorityStandard) // Standard priority
+//	{
+//	}
+//
+//CGeminiEngine* CGeminiEngine::NewLC()
+//	{
+//	CGeminiEngine* self = new ( ELeave ) CGeminiEngine();
+//	CleanupStack::PushL(self);
+//	self->ConstructL();
+//	return self;
+//	}
+//
+//CGeminiEngine* CGeminiEngine::NewL()
+//	{
+//	CGeminiEngine* self = CGeminiEngine::NewLC();
+//	CleanupStack::Pop(); // self;
+//	return self;
+//	}
+//
+//void CGeminiEngine::ConstructL()
+//	{
+//	User::LeaveIfError(iTimer.CreateLocal() ); // Initialize timer
+//	CActiveScheduler::Add( this); // Add to scheduler
+//	}
+//
+//CGeminiEngine::~CGeminiEngine()
+//	{
+//	Cancel(); // Cancel any request, if outstanding
+//	iTimer.Close(); // Destroy the RTimer object
+//	// Delete instance variables if any
+//	}
+//
+//void CGeminiEngine::DoCancel()
+//	{
+//	iTimer.Cancel();
+//	}
+//
+//void CGeminiEngine::StartL(TTimeIntervalMicroSeconds32 aDelay)
+//	{
+//	Cancel(); // Cancel any request, just to be sure
+//	iState = EUninitialized;
+//	iTimer.After(iStatus, aDelay); // Set for later
+//	SetActive(); // Tell scheduler a request is active
+//	}
+//
+//void CGeminiEngine::RunL()
+//	{
+//	if (iState == EUninitialized)
+//		{
+//		// Do something the first time RunL() is called
+//		iState = EInitialized;
+//		}
+//	else
+//		if (iState != EError)
+//			{
+//			// Do something
+//			}
+//	iTimer.After(iStatus, 1000000); // Set for 1 sec later
+//	SetActive(); // Tell scheduler a request is active
+//	}
+//
+//TInt CGeminiEngine::RunError(TInt aError)
+//	{
+//	return aError;
+//	}
+
+#include "GeminiEngine.h"
+
+const TInt KGeminiPort = 1965;
+const TInt KMaxRecvBuffer = 65536;
+
+CGeminiEngine* CGeminiEngine::NewL(MGeminiObserver& aObserver)
+    {
+    CGeminiEngine* self = new (ELeave) CGeminiEngine(aObserver);
+    CleanupStack::PushL(self);
+    self->ConstructL();
+    CleanupStack::Pop(self);
+    return self;
+    }
+
+CGeminiEngine::CGeminiEngine(MGeminiObserver& aObserver)
+    : CActive(EPriorityStandard), 
+      iObserver(aObserver), 
+      iState(EIdle),
+      iRecvPtr(NULL, 0)  // TPtr8(pointer, maxLength) - placeholder init
+    {
+    CActiveScheduler::Add(this);
+    }
+
+void CGeminiEngine::ConstructL()
+    {
+    User::LeaveIfError(iSocketServ.Connect());
+    iRecvBuffer = HBufC8::NewL(KMaxRecvBuffer);
+    iRecvPtr.Set(iRecvBuffer->Des());  // Now point to real buffer
+    }
+
+CGeminiEngine::~CGeminiEngine()
+    {
+    Cancel();
+    delete iSecureSocket;
+    iSocket.Close();
+    iResolver.Close();
+    iSocketServ.Close();
+    delete iUrl;
+    delete iHost;
+    delete iSendBuffer;
+    delete iRecvBuffer;
+    }
+
+void CGeminiEngine::ResolveHostL(const TDesC8& aHost)
+    {
+    User::LeaveIfError(iResolver.Open(iSocketServ, KAfInet, KProtocolInetTcp));
+
+    // Convert 8-bit host to 16-bit for resolver
+    TBuf<256> host16;
+    host16.Copy(aHost);
+
+    iResolver.GetByName(host16, iNameEntry, iStatus);
+    iState = EResolvingHost;
+    SetActive();
+    }
+
+void CGeminiEngine::FetchL(const TDesC8& aUrl)
+    {
+    // Reset state
+    delete iUrl;
+    iUrl = NULL;
+    delete iHost;
+    iHost = NULL;
+    iPort = 1965;  // Default Gemini port
+
+    // Store full URL
+    iUrl = aUrl.AllocL();
+
+    // Parse: gemini://host[:port]/path
+    // Skip "gemini://"
+    TPtrC8 remaining = aUrl;
+    _LIT8(KScheme, "gemini://");
+    if (remaining.FindF(KScheme) == 0)
+        {
+        remaining.Set(remaining.Mid(KScheme().Length()));
+        }
+
+    // Find end of host (first / or end of string)
+    TInt slashPos = remaining.Locate('/');
+    TPtrC8 hostPort;
+    if (slashPos != KErrNotFound)
+        {
+        hostPort.Set(remaining.Left(slashPos));
+        }
+    else
+        {
+        hostPort.Set(remaining);
+        }
+
+    // Check for port
+    TInt colonPos = hostPort.Locate(':');
+    if (colonPos != KErrNotFound)
+        {
+        // Extract port
+        TPtrC8 portStr = hostPort.Mid(colonPos + 1);
+        TLex8 lex(portStr);
+        lex.Val(iPort);
+        iHost = hostPort.Left(colonPos).AllocL();
+        }
+    else
+        {
+        iHost = hostPort.AllocL();
+        }
+
+    iObserver.OnConnecting();
+    ResolveHostL(*iHost);
+    }
+
+
+void CGeminiEngine::RunL()
+    {
+    RDebug::Print(_L("GeminiEngine: State=%d, Status=%d"), iState, iStatus.Int());
+    User::LeaveIfError(iStatus.Int());
+
+    switch (iState)
+        {
+        case EResolvingHost:
+            ConnectL();
+            break;
+        case EConnecting:
+            StartHandshakeL();
+            break;
+        case EHandshaking:
+            SendRequestL();
+            break;
+        case ESending:
+            ReceiveResponseL();
+            break;
+        case EReceiving:
+            // Check if more data available, else parse
+            ParseResponse();
+            break;
+        }
+    }
+
+void CGeminiEngine::ConnectL()
+    {
+    // Get resolved address
+    TInetAddr addr = TInetAddr::Cast(iNameEntry().iAddr);
+    addr.SetPort(iPort);
+
+    // Open TCP socket
+    User::LeaveIfError(iSocket.Open(iSocketServ, KAfInet, KSockStream, KProtocolInetTcp));
+
+    // Connect
+    iSocket.Connect(addr, iStatus);
+    iState = EConnecting;
+    SetActive();
+    }
+
+void CGeminiEngine::StartHandshakeL()
+    {
+    iSecureSocket = CSecureSocket::NewL(iSocket, _L("TLS1.0"));
+    // With nnproject patch, this negotiates TLS 1.2
+    iSecureSocket->StartClientHandshake(iStatus);
+    iState = EHandshaking;
+    SetActive();
+    }
+
+void CGeminiEngine::SendRequestL()
+    {
+    // Gemini request: URL + CRLF
+    iSendBuffer = HBufC8::NewL(iUrl->Length() + 2);
+    iSendBuffer->Des().Copy(*iUrl);
+    iSendBuffer->Des().Append(_L8("\r\n"));
+
+    iSecureSocket->Send(*iSendBuffer, iStatus);
+    iState = ESending;
+    SetActive();
+    }
+
+void CGeminiEngine::ReceiveResponseL()
+    {
+    iRecvPtr.Zero();
+    iSecureSocket->RecvOneOrMore(iRecvPtr, iStatus, iRecvLen);
+    iState = EReceiving;
+    SetActive();
+    }
+
+void CGeminiEngine::ParseResponse()
+    {
+    const TDesC8& data = *iRecvBuffer;
+
+    // Find end of status line (first CRLF)
+    TInt crlfPos = data.Find(_L8("\r\n"));
+    if (crlfPos == KErrNotFound || crlfPos < 2)
+        {
+        iObserver.OnError(KErrCorrupt, _L("Invalid response"));
+        return;
+        }
+
+    // Status line: "20 text/gemini"
+    TPtrC8 statusLine = data.Left(crlfPos);
+
+    // First two chars = status code
+    TPtrC8 statusCode = statusLine.Left(2);
+
+    // Rest after space = meta
+    TPtrC8 meta;
+    if (statusLine.Length() > 3)
+        {
+        meta.Set(statusLine.Mid(3));
+        }
+
+    // Body = everything after first CRLF
+    TPtrC8 body;
+    if (data.Length() > crlfPos + 2)
+        {
+        body.Set(data.Mid(crlfPos + 2));
+        }
+
+    iObserver.OnResponseReceived(statusCode, meta, body);
+    iState = EIdle;
+    }
+
+void CGeminiEngine::DoCancel()
+    {
+    if (iSecureSocket)
+        iSecureSocket->CancelAll();
+    iSocket.CancelAll();
+    iResolver.Cancel();
+    }
+
+TInt CGeminiEngine::RunError(TInt aError)
+    {
+    TBuf<64> msg;
+    msg.Format(_L("Error: %d"), aError);
+    iObserver.OnError(aError, msg);
+    iState = EIdle;
+    return KErrNone;
+    }

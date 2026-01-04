@@ -1,0 +1,18 @@
+#Sat Jan 03 20:12:45 UYST 2026
+UIActivities.com.nokia.cdt.templates.s60.28.uidesigner=true
+UIActivities.com.nokia.cdt.debug.kernelawareactivity=true
+UIActivities.com.nokia.cdt.templates.s60.3x.uidesigner=true
+UIActivities.com.nokia.cdt.debug.crashdebugactivity=true
+UIActivities.com.nokia.cdt.templates.s60.birthdays.uidesigner=true
+UIActivities.com.nokia.cdt.debug.attachtoprocessactivity=true
+UIActivities.com.nokia.cdt.debug.sophiadebugactivity=true
+UIActivities.com.nokia.cdt.debug.trace32debugactivity=true
+UIActivities.com.nokia.cdt.templates.s60.3x.add.uidesigner=true
+UIActivities.com.nokia.cdt.templates.s60.2x.add.uidesigner=true
+UIActivities.com.nokia.cdt.templates.s60.yahooimagesearch.uidesigner=true
+UIActivities.com.nokia.cdt.templates.s60.2x.uidesigner=true
+UIActivities.com.nokia.cdt.debug.systemtrkactivity=true
+eclipse.preferences.version=1
+UIActivities.com.nokia.carbide.cpp.codescanneractivity=true
+RUN_IN_BACKGROUND=true
+UIActivities.com.nokia.cdt.debug.apptrkactivity=true
