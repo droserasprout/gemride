@@ -3833,3 +3833,206 @@ org.eclipse.debug.core.DebugException: Target request failed: TRKProtocolPlugin 
 
 !ENTRY org.eclipse.cdt.debug.core 4 5010 2026-01-04 15:48:28.181
 !MESSAGE Target request failed: TRKProtocolPlugin : Unable to open communications port (Port may be used by another application or selected port may not be available.).
+
+!ENTRY org.eclipse.debug.core 4 125 2026-01-04 18:15:19.380
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+org.omg.CORBA.BAD_INV_ORDER:   vmcid: OMG  minor code: 4  completed: No
+	at com.sun.corba.se.impl.logging.OMGSystemException.badOperationAfterShutdown(Unknown Source)
+	at com.sun.corba.se.impl.logging.OMGSystemException.badOperationAfterShutdown(Unknown Source)
+	at com.sun.corba.se.impl.orb.ORBImpl.checkShutdownState(Unknown Source)
+	at com.sun.corba.se.impl.orb.ORBImpl.getInvocationInfo(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.getClientRequestDispatcher(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.releaseReply(Unknown Source)
+	at org.omg.CORBA.portable.ObjectImpl._releaseReply(Unknown Source)
+	at cwdbg._ProcessStub.GetProcessID(_ProcessStub.java:187)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.internalTerminate(Target.java:461)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.disconnect(Target.java:492)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.disconnect(CDebugTarget.java:758)
+	at org.eclipse.debug.core.Launch.disconnect(Launch.java:455)
+	at org.eclipse.debug.internal.core.LaunchManager.shutdown(LaunchManager.java:2310)
+	at org.eclipse.debug.core.DebugPlugin.stop(DebugPlugin.java:592)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:840)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:833)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:474)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:546)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1098)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:593)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:261)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:216)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:266)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:685)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:583)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:409)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:200)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+!SESSION 2026-01-04 19:50:00.037 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY java.lang.ProcessBuilder 2 0 2026-01-04 19:50:05.036
+!MESSAGE Could not find or launch Raptor script 'sbs.bat'; SBSv2 support will not be available
+!STACK 0
+java.io.IOException: Cannot run program "sbs.bat": CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at com.nokia.carbide.cpp.internal.sdk.core.model.SDKManager.getSBSv2Version(SDKManager.java:986)
+	at com.nokia.carbide.cpp.internal.sdk.core.model.SDKManager.scanSDKs(SDKManager.java:168)
+	at com.nokia.carbide.cpp.internal.sdk.core.model.SDKManager.ensureScannedSDKs(SDKManager.java:242)
+	at com.nokia.carbide.cpp.internal.sdk.core.model.SDKManager.getSDKList(SDKManager.java:257)
+	at com.nokia.carbide.cpp.internal.sdk.core.model.SDKManager.getSDK(SDKManager.java:266)
+	at com.nokia.carbide.cpp.internal.api.sdk.SymbianBuildContext.getBuildContextFromDisplayName(SymbianBuildContext.java:179)
+	at com.nokia.carbide.cdt.internal.api.builder.CarbideConfigurationDataProvider.loadConfiguration(CarbideConfigurationDataProvider.java:124)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.loadData(CProjectDescriptionManager.java:1065)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.loadData(CConfigurationDescriptionCache.java:95)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.loadDatas(CProjectDescription.java:196)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:435)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:195)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:389)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:382)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:375)
+	at org.eclipse.cdt.internal.core.model.CProject.computeSourceRoots(CProject.java:603)
+	at org.eclipse.cdt.internal.core.model.CProject.computeChildren(CProject.java:624)
+	at org.eclipse.cdt.internal.core.model.CProject.buildStructure(CProject.java:588)
+	at org.eclipse.cdt.internal.core.model.Openable.generateInfos(Openable.java:269)
+	at org.eclipse.cdt.internal.core.model.CElement.openWhenClosed(CElement.java:430)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:309)
+	at org.eclipse.cdt.internal.core.model.CElement.getElementInfo(CElement.java:299)
+	at org.eclipse.cdt.internal.core.model.Parent.getChildren(Parent.java:55)
+	at org.eclipse.cdt.internal.core.model.CProject.getSourceRoots(CProject.java:480)
+	at org.eclipse.cdt.internal.core.model.CModelManager.create(CModelManager.java:315)
+	at org.eclipse.cdt.core.model.CoreModel.create(CoreModel.java:121)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createTranslationUnit(CDocumentProvider.java:794)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:835)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:778)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4134)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:203)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1413)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:166)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1357)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1322)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$19.run(AbstractTextEditor.java:3115)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:464)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:372)
+	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:759)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:756)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2578)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3133)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3160)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:798)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:644)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.EditorAreaHelper.setVisibleEditor(EditorAreaHelper.java:271)
+	at org.eclipse.ui.internal.EditorManager.setVisibleEditor(EditorManager.java:1417)
+	at org.eclipse.ui.internal.EditorManager$5.runWithException(EditorManager.java:942)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
+	at org.eclipse.ui.application.WorkbenchAdvisor.openWindows(WorkbenchAdvisor.java:803)
+	at org.eclipse.ui.internal.Workbench$28.runWithException(Workbench.java:1384)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3855)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3476)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2316)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 86 more
+
+!ENTRY com.nokia.carbide.cpp.sdk.core 4 0 2026-01-04 19:50:05.198
+!MESSAGE Cannot find sbs.bat on the PATH.  Please verify your SBSv2 installation.
+
+!ENTRY com.nokia.carbide.remoteconnections.discovery.pccs.pccsnative.PCCSConnection 4 0 2026-01-04 19:50:12.411
+!MESSAGE PCCS CONAOpenDM API returned error on initialization 80100002
+!STACK 1
+org.eclipse.core.runtime.CoreException: PCCS CONAOpenDM API returned error on initialization 80100002
+	at com.nokia.carbide.remoteconnections.discovery.pccs.pccsnative.PCCSConnection.loadDMAPI(PCCSConnection.java:247)
+	at com.nokia.carbide.remoteconnections.discovery.pccs.pccsnative.PCCSConnection.open(PCCSConnection.java:144)
+	at com.nokia.carbide.remoteconnections.discovery.pccs.agent.PCCSDiscoveryAgent.start(PCCSDiscoveryAgent.java:185)
+	at com.nokia.carbide.remoteconnections.RemoteConnectionsActivator$3.select(RemoteConnectionsActivator.java:269)
+	at com.nokia.carbide.remoteconnections.RemoteConnectionsActivator.loadExtensions(RemoteConnectionsActivator.java:313)
+	at com.nokia.carbide.remoteconnections.RemoteConnectionsActivator.loadAndStartDeviceDiscoveryAgents(RemoteConnectionsActivator.java:263)
+	at com.nokia.carbide.remoteconnections.RemoteConnectionsActivator.access$2(RemoteConnectionsActivator.java:260)
+	at com.nokia.carbide.remoteconnections.RemoteConnectionsActivator$1.run(RemoteConnectionsActivator.java:129)
+	at com.nokia.carbide.remoteconnections.RemoteConnectionsActivator$WhenWorkbenchIsVisibleThread.run(RemoteConnectionsActivator.java:88)
+!SUBENTRY 1 com.nokia.carbide.remoteConnections.discovery.pccs 4 -2146435070 2026-01-04 19:50:12.411
+!MESSAGE PCCS CONAOpenDM API returned error on initialization 80100002
+
+!ENTRY com.nokia.carbide.cpp.news.reader 4 4 2026-01-04 19:50:16.753
+!MESSAGE tools.ext.nokia.com
+!STACK 0
+java.net.UnknownHostException: tools.ext.nokia.com
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at com.nokia.carbide.cpp.internal.news.reader.gen.FeedInfo.FeedInfoManager.getFeedInfoFileURL(FeedInfoManager.java:157)
+	at com.nokia.carbide.cpp.internal.news.reader.feed.FeedManager.loadFeedListing(FeedManager.java:391)
+	at com.nokia.carbide.cpp.internal.news.reader.feed.FeedManager.loadFeeds(FeedManager.java:98)
+	at com.nokia.carbide.cpp.internal.news.reader.CarbideNewsReaderPlugin$2.run(CarbideNewsReaderPlugin.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 com.nokia.carbide.cpp.news.reader 4 0 2026-01-04 19:50:16.753
+!MESSAGE Plug-in Vendor: Nokia
+!SUBENTRY 1 com.nokia.carbide.cpp.news.reader 4 0 2026-01-04 19:50:16.753
+!MESSAGE Plug-in Name: Carbide News Reader Plug-in
+!SUBENTRY 1 com.nokia.carbide.cpp.news.reader 4 0 2026-01-04 19:50:16.753
+!MESSAGE Plug-in ID: com.nokia.carbide.cpp.news.reader
+!SUBENTRY 1 com.nokia.carbide.cpp.news.reader 4 0 2026-01-04 19:50:16.753
+!MESSAGE Plug-in Version: 1.4.0.v201007151415_86
+!SESSION 2026-01-05 14:10:14.104 -----------------------------------------------
+eclipse.buildId=M20071023-1652
+java.version=1.5.0_10
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.cdt.core 4 4 2026-01-05 14:10:59.245
+!MESSAGE Could not write file: C:\Symbian\Carbide\workspace\gemride\.cproject.
+** Error occured because of file status <hidden>.
+** This status is disabled now, to allow writing.

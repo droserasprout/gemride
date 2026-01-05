@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?fileVersion 4.0.0?>
 
 <cproject>
@@ -16,15 +16,13 @@
 <extension id="com.nokia.carbide.cdt.builder.CarbideMakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 <extension id="com.nokia.carbide.cdt.builder.RCOMPErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 <extension id="com.nokia.carbide.cdt.builder.MakmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.SBSv2ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.MWCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.nokia.carbide.cdt.builder.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 </extensions>
 </storageModule>
 <storageModule moduleId="CarbideConfigurationDataProvider">
+
 <ENV_VAR_DATA_ID/>
 <ARGUMENTS_DATA_ID ABLDFREEZEARGSSTORAGE="-r"/>
-<ROM_BUILDER_DATA_ID ROMBUILDWORKINGDIRECTORYSTORAGE="C:\"/>
 </storageModule>
 <storageModule filesCache="C:\Symbian\Carbide\workspace\gemride\group\bld.inf;C:\Symbian\Carbide\workspace\gemride\group\gemride.mmp;" includesCache="C:/Symbian/Carbide/workspace/gemride/inc[LOCAL];C:/Symbian/Carbide/workspace/gemride/data[LOCAL];C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include;C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include/variant;C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include/ecom;" macrosCache="_UNICODE;__SYMBIAN32__;__SUPPORT_CPP_EXCEPTIONS__;__EXE__;__S60_3X__;__SERIES60_3X__;__S60_32__;__CW32__;__WINS__;__WINSCW__;_DEBUG;" moduleId="configDataCache" sourcesCache="/gemride/data;/gemride/inc;/gemride/src;" timestampCache="1767438609169" useMmpMacrosCache="true"/>
 <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
@@ -45,17 +43,14 @@
 <extension id="com.nokia.carbide.cdt.builder.RCOMPErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 <extension id="com.nokia.carbide.cdt.builder.Elf2E32ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 <extension id="com.nokia.carbide.cdt.builder.MakmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.SBSv2ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.GCCECompilerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.GCCEAssemblerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.GCCELinkerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.nokia.carbide.cdt.builder.GCCEErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 </extensions>
 </storageModule>
 <storageModule moduleId="CarbideConfigurationDataProvider">
-<SIS_BUILDER_DATA_ID CREATESTUBSTORAGE="false" ENABLEDSTORAGE="true" PARTIALUPGRADESTORAGE="false" PKGFILESTORAGE="sis/gemride.pkg" SIGNINGTYPESTORAGE="1"/>
+
+<SIS_BUILDER_DATA_ID CREATESTUBSTORAGE="false" ENABLEDSTORAGE="true" HASSISCHANGES="false" HASSISXCHANGES="false" PKGFILESTORAGE="sis/gemride.pkg" SIGNINGTYPESTORAGE="1"/>
 <ENV_VAR_DATA_ID/>
 <ARGUMENTS_DATA_ID ABLDFREEZEARGSSTORAGE="-r"/>
-<ROM_BUILDER_DATA_ID ROMBUILDWORKINGDIRECTORYSTORAGE="C:\"/>
 </storageModule>
 <storageModule filesCache="C:\Symbian\Carbide\workspace\gemride\group\bld.inf;C:\Symbian\Carbide\workspace\gemride\group\gemride.mmp;" includesCache="C:/Symbian/Carbide/workspace/gemride/inc[LOCAL];C:/Symbian/Carbide/workspace/gemride/data[LOCAL];C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include;C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include/variant;C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include/ecom;" macrosCache="_UNICODE;__SUPPORT_CPP_EXCEPTIONS__;__S60_32__;__MARM_ARMV5__;NDEBUG;__SYMBIAN32__;__GCCE__;__MARM__;__EXE__;__SERIES60_3X__;__S60_3X__;__GENERIC_MARM__;__EPOC32__;__EABI__;" moduleId="configDataCache" sourcesCache="/gemride/data;/gemride/inc;/gemride/src;" timestampCache="1767438609193" useMmpMacrosCache="true"/>
 <storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
@@ -73,18 +68,15 @@
 <extension id="com.nokia.carbide.cdt.builder.RCOMPErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 <extension id="com.nokia.carbide.cdt.builder.Elf2E32ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 <extension id="com.nokia.carbide.cdt.builder.MakmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.SBSv2ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.GCCECompilerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.GCCEAssemblerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="com.nokia.carbide.cdt.builder.GCCELinkerErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+<extension id="com.nokia.carbide.cdt.builder.GCCEErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 </extensions>
 </storageModule>
 <storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
 <storageModule moduleId="CarbideConfigurationDataProvider">
-<SIS_BUILDER_DATA_ID CREATESTUBSTORAGE="false" ENABLEDSTORAGE="true" PARTIALUPGRADESTORAGE="false" PKGFILESTORAGE="sis\gemride.pkg" SIGNINGTYPESTORAGE="0"/>
+
+<SIS_BUILDER_DATA_ID CREATESTUBSTORAGE="false" ENABLEDSTORAGE="true" HASSISCHANGES="false" HASSISXCHANGES="false" PKGFILESTORAGE="sis\gemride.pkg" SIGNINGTYPESTORAGE="0"/>
 <ENV_VAR_DATA_ID/>
 <ARGUMENTS_DATA_ID ABLDFREEZEARGSSTORAGE="-r"/>
-<ROM_BUILDER_DATA_ID ROMBUILDWORKINGDIRECTORYSTORAGE="C:\"/>
 </storageModule>
 <storageModule filesCache="C:\Symbian\Carbide\workspace\gemride\group\bld.inf;C:\Symbian\Carbide\workspace\gemride\group\gemride.mmp;" includesCache="C:/Symbian/Carbide/workspace/gemride/inc[LOCAL];C:/Symbian/Carbide/workspace/gemride/data[LOCAL];C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include;C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include/variant;C:/S60/devices/S60_3rd_FP2_SDK_v1.1/epoc32/include/ecom;" macrosCache="_UNICODE;__SUPPORT_CPP_EXCEPTIONS__;__S60_32__;__MARM_ARMV5__;__SYMBIAN32__;__GCCE__;__MARM__;__EXE__;__SERIES60_3X__;__S60_3X__;__GENERIC_MARM__;__EPOC32__;__EABI__;_DEBUG;" moduleId="configDataCache" sourcesCache="/gemride/data;/gemride/inc;/gemride/src;" timestampCache="1767438609216" useMmpMacrosCache="true"/>
 <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>

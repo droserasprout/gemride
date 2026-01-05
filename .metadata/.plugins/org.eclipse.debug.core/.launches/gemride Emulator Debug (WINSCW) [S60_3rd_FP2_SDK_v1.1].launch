@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <launchConfiguration type="com.nokia.cdt.debug.launch.emulationLaunch">
 <booleanAttribute key="DebugTraceLaunchSetting" value="true"/>
 <booleanAttribute key="com.freescale.cdt.debug.cw.CW_SHADOWED_PREF.x86 Exceptions Panel.exc_ACCESS_VIOLATION" value="false"/>
