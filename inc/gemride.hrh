@@ -1,0 +1,12 @@
+/*
+========================================================================
+ Name        : gemride.hrh
+ Author      : Lev Gorodetskii
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+enum TgemrideViewUids
+	{
+	EGemrideContainerViewId = 1
+	};
