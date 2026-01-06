@@ -151,10 +151,10 @@ TInt CGemrideContainer::FindWrapPosition(const TDesC& aText, TInt aMaxChars) con
 void CGemrideContainer::Draw(const TRect& aRect) const
     {
     // [[[ begin generated region: do not modify [Generated Contents]
-	CWindowGc& gc = SystemGc();
-	gc.Clear( aRect );
-	
-	// ]]] end generated region [Generated Contents]
+    CWindowGc& gc = SystemGc();
+    gc.Clear( aRect );
+    
+    // ]]] end generated region [Generated Contents]
 
     const CFont* bodyFont = iEikonEnv->DenseFont();    // Smaller body text
     const CFont* titleFont = iEikonEnv->TitleFont();   // H1
@@ -176,6 +176,51 @@ void CGemrideContainer::Draw(const TRect& aRect) const
     TInt charsPerLine = textRect.Width() / avgCharWidth;
     if (charsPerLine < 20) charsPerLine = 20;
 
+    // Show loading UI first if we're currently loading a page.
+    if (iLoading)
+        {
+        TInt yPos = baseline;
+        TInt lineHeight = bodyFont->HeightInPixels() + 4;
+
+        // "Loading..."
+        gc.DrawText(_L("Loading..."), TPoint(textRect.iTl.iX, yPos));
+        yPos += lineHeight * 2;
+
+        // "URL: ..."
+        if (iCurrentUrl && iCurrentUrl->Length() > 0)
+            {
+            TBuf<256> urlLine;
+            urlLine.Copy(_L("URL: "));
+            TInt maxUrlLen = 256 - urlLine.Length();
+            if (iCurrentUrl->Length() <= maxUrlLen)
+                {
+                urlLine.Append(*iCurrentUrl);
+                }
+            else
+                {
+                urlLine.Append(iCurrentUrl->Left(maxUrlLen - 3));
+                urlLine.Append(_L("..."));
+                }
+            gc.DrawText(urlLine, TPoint(textRect.iTl.iX, yPos));
+            yPos += lineHeight * 2;
+            }
+
+        // "Page: X KB"
+        TBuf<64> pageLine;
+        pageLine.Format(_L("Page: %d KB"), iPageBytes / 1024);
+        gc.DrawText(pageLine, TPoint(textRect.iTl.iX, yPos));
+        yPos += lineHeight;
+
+        // "Total: X KB"
+        TBuf<64> totalLine;
+        totalLine.Format(_L("Total: %d KB"), iTotalBytes / 1024);
+        gc.DrawText(totalLine, TPoint(textRect.iTl.iX, yPos));
+
+        gc.DiscardFont();
+        return;
+        }
+
+    // If not loading, render parsed content (if any).
     if (iParser && iParser->LineCount() > 0)
         {
         TInt yPos = baseline;
@@ -358,45 +403,6 @@ void CGemrideContainer::Draw(const TRect& aRect) const
 
         gc.UseFont(bodyFont);
         gc.SetPenColor(KRgbBlack);
-        }
-    else if (iLoading)
-        {
-        TInt yPos = baseline;
-        TInt lineHeight = bodyFont->HeightInPixels() + 4;
-
-        // "Loading..."
-        gc.DrawText(_L("Loading..."), TPoint(textRect.iTl.iX, yPos));
-        yPos += lineHeight * 2;
-
-        // "URL: ..."
-        if (iCurrentUrl && iCurrentUrl->Length() > 0)
-            {
-            TBuf<256> urlLine;
-            urlLine.Copy(_L("URL: "));
-            TInt maxUrlLen = 256 - urlLine.Length();
-            if (iCurrentUrl->Length() <= maxUrlLen)
-                {
-                urlLine.Append(*iCurrentUrl);
-                }
-            else
-                {
-                urlLine.Append(iCurrentUrl->Left(maxUrlLen - 3));
-                urlLine.Append(_L("..."));
-                }
-            gc.DrawText(urlLine, TPoint(textRect.iTl.iX, yPos));
-            yPos += lineHeight * 2;
-            }
-
-        // "Page: X KB"
-        TBuf<64> pageLine;
-        pageLine.Format(_L("Page: %d KB"), iPageBytes / 1024);
-        gc.DrawText(pageLine, TPoint(textRect.iTl.iX, yPos));
-        yPos += lineHeight;
-
-        // "Total: X KB"
-        TBuf<64> totalLine;
-        totalLine.Format(_L("Total: %d KB"), iTotalBytes / 1024);
-        gc.DrawText(totalLine, TPoint(textRect.iTl.iX, yPos));
         }
     else
         {
