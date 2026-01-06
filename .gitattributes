@@ -1,17 +1,21 @@
-# Symbian build files - enforce LF
+# All text files default to LF
+* text=auto eol=lf
+
+# Ensure these are text, not binary
+.cproject text eol=lf
+.project text eol=lf
+*.uidesign text eol=lf
+*.svg text eol=lf
+
+# Explicitly restate Symbian files
 *.mmp text eol=lf
 *.mk text eol=lf
 *.inf text eol=lf
 Makefile text eol=lf
 ABLD.BAT text eol=lf
-
-# Source code - enforce LF
 *.h text eol=lf
 *.cpp text eol=lf
 *.c text eol=lf
-*.hpp text eol=lf
-
-# Resource files - enforce LF
 *.rss text eol=lf
 *.rssi text eol=lf
 *.loc text eol=lf
