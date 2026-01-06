@@ -1,0 +1,28 @@
+# Symbian build files - enforce LF
+*.mmp text eol=lf
+*.mk text eol=lf
+*.inf text eol=lf
+Makefile text eol=lf
+ABLD.BAT text eol=lf
+
+# Source code - enforce LF
+*.h text eol=lf
+*.cpp text eol=lf
+*.c text eol=lf
+*.hpp text eol=lf
+
+# Resource files - enforce LF
+*.rss text eol=lf
+*.rssi text eol=lf
+*.loc text eol=lf
+*.l01 text eol=lf
+*.hrh text eol=lf
+*.pan text eol=lf
+*.pkg text eol=lf
+*.xml text eol=lf
+
+# Binary files
+*.bmp binary
+*.sis binary
+*.sisx binary
+*.db binary
