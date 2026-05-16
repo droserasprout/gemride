@@ -1,0 +1,26 @@
+; gemride_debug.pkg
+; Hand-edited from gemride.pkg with Carbide variables substituted for the
+; Phone Debug (GCCE) configuration ($(PLATFORM)=gcce, $(TARGET)=udeb).
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"gemride"},(0xEED04A3E),1,0,0
+
+;Localised Vendor name
+%{"Vendor-EN"}
+
+;Unique Vendor name
+:"Vendor"
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;Files to install
+;<source> <destination>
+"Y:\s60\devices\s60_3rd_fp2_sdk_v1.1\epoc32\release\gcce\udeb\gemride.exe"		-"!:\sys\bin\gemride.exe"
+"Y:\s60\devices\s60_3rd_fp2_sdk_v1.1\epoc32\data\z\resource\apps\gemride.r01"		-"!:\resource\apps\gemride.r01"
+"Y:\s60\devices\s60_3rd_fp2_sdk_v1.1\epoc32\data\z\private\10003a3f\apps\gemride_reg.r01"	-"!:\private\10003a3f\import\apps\gemride_reg.r01"
+"Y:\s60\devices\s60_3rd_fp2_sdk_v1.1\epoc32\data\z\resource\apps\gemride_aif.mif" -"!:\resource\apps\gemride_aif.mif"
+"Y:\s60\devices\s60_3rd_fp2_sdk_v1.1\epoc32\data\z\resource\apps\gemride.mbm" -"!:\resource\apps\gemride.mbm"

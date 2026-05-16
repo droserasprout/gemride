@@ -25,7 +25,7 @@
 #include "gemrideContainer.h"
 
 CgemrideContainerView::CgemrideContainerView()
-    : iGemrideContainer(NULL), iEngine(NULL), iCurrentUrl(NULL)
+    : iGemrideContainer(NULL), iEngine(NULL), iCurrentUrl(NULL), iFullscreen(EFalse)
     {
     }
 
@@ -77,12 +77,16 @@ void CgemrideContainerView::HandleCommandL(TInt aCommand)
 			GoBackL();
 			commandHandled = ETrue;
 			break;
+		case EGemrideContainerViewToggleFullscreenCommand:
+			ToggleFullscreenL();
+			commandHandled = ETrue;
+			break;
 		default:
 			break;
 		}
 
 
-	if ( !commandHandled ) 
+	if ( !commandHandled )
 		{
 
 		if ( aCommand == EAknSoftkeyExit )
@@ -93,6 +97,40 @@ void CgemrideContainerView::HandleCommandL(TInt aCommand)
 		}
 	// ]]] end generated region [Generated Code]
 
+	}
+
+void CgemrideContainerView::DynInitMenuPaneL(TInt aResourceId, CEikMenuPane* aMenuPane)
+	{
+	if (!aMenuPane || aResourceId != R_GEMRIDE_CONTAINER_MENU_PANE1_MENU_PANE)
+		return;
+
+	if (iFullscreen)
+		{
+		aMenuPane->SetItemTextL(EGemrideContainerViewToggleFullscreenCommand, _L("Exit full screen"));
+		}
+	else
+		{
+		aMenuPane->SetItemTextL(EGemrideContainerViewToggleFullscreenCommand, _L("Full screen"));
+		}
+	}
+
+void CgemrideContainerView::ToggleFullscreenL()
+	{
+	iFullscreen = !iFullscreen;
+
+	StatusPane()->MakeVisible(!iFullscreen);
+
+	CEikButtonGroupContainer* cba = Cba();
+	if (cba)
+		{
+		cba->MakeVisible(!iFullscreen);
+		}
+
+	if (iGemrideContainer)
+		{
+		iGemrideContainer->SetRect(ClientRect());
+		iGemrideContainer->DrawNow();
+		}
 	}
 
 void CgemrideContainerView::DoActivateL(
@@ -106,6 +144,7 @@ void CgemrideContainerView::DoActivateL(
         {
         iGemrideContainer = CreateContainerL();
         iGemrideContainer->SetMopParent(this);
+        iGemrideContainer->SetFullscreenToggler(this);
         AppUi()->AddToStackL(*this, iGemrideContainer);
         }
 
@@ -128,6 +167,17 @@ void CgemrideContainerView::DoActivateL(
 
 void CgemrideContainerView::DoDeactivate()
 	{
+	if (iFullscreen)
+		{
+		StatusPane()->MakeVisible(ETrue);
+		CEikButtonGroupContainer* cba = Cba();
+		if (cba)
+			{
+			cba->MakeVisible(ETrue);
+			}
+		iFullscreen = EFalse;
+		}
+
 	// [[[ begin generated region: do not modify [Generated Contents]
 	CleanupStatusPane();
 

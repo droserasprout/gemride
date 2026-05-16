@@ -49,6 +49,11 @@ RESOURCE MENU_PANE r_gemride_container_menu_pane1_menu_pane
 			{
 			command = EGemrideContainerViewGo_toMenuItemCommand;
 			txt = STR_gemrideContainerView_6;
+			},
+		MENU_ITEM
+			{
+			command = EGemrideContainerViewToggleFullscreenCommand;
+			txt = STR_gemrideContainerView_7;
 			}
 		};
 	}

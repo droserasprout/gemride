@@ -14,23 +14,28 @@
 
 #include "GeminiObserver.h"
 #include "GeminiEngine.h"
+#include "MFullscreenToggler.h"
 
 class CGemrideContainer;
+class CEikMenuPane;
 
 /**
  * Avkon view class for gemrideContainerView. It is register with the view server
  * by the AppUi. It owns the container control.
  * @class	CgemrideContainerView gemrideContainerView.h
  */
-class CgemrideContainerView : public CAknView, public MGeminiObserver
+class CgemrideContainerView : public CAknView, public MGeminiObserver, public MFullscreenToggler
 	{
 public:
 	// from MGeminiObserver
 	void OnConnecting();
 	void OnBytesReceived(TInt aBytes);
-	void OnResponseReceived(const TDesC8& aStatus, 
+	void OnResponseReceived(const TDesC8& aStatus,
 	    const TDesC8& aMeta, const TDesC8& aBody);
 	void OnError(TInt aError, const TDesC& aMessage);
+
+	// from MFullscreenToggler
+	void ToggleFullscreenL();
 
 	CGemrideContainer* CreateContainerL();
 	void NavigateToL(const TDesC& aUrl);
@@ -54,6 +59,7 @@ public:
 	// from base class CAknView
 	TUid Id() const;
 	void HandleCommandL( TInt aCommand );
+	void DynInitMenuPaneL( TInt aResourceId, CEikMenuPane* aMenuPane );
 
 	// [[[ begin generated region: do not modify [Generated Methods]
 	// ]]] end generated region [Generated Methods]
@@ -92,6 +98,8 @@ private:
 	// [[[ begin generated region: do not modify [Generated Instance Variables]
 	CGemrideContainer* iGemrideContainer;
 	// ]]] end generated region [Generated Instance Variables]
+
+	TBool iFullscreen;
 
 	// [[[ begin generated region: do not modify [Generated Methods]
 	// ]]] end generated region [Generated Methods]

@@ -15,6 +15,7 @@
 #include "GemtextParser.h"
 
 class MEikCommandObserver;
+class MFullscreenToggler;
 
 /**
  * Represents a single display line (extensible for links later)
@@ -80,6 +81,8 @@ public:
 
     void ActivateSelectedLinkL();
 
+    void SetFullscreenToggler(MFullscreenToggler* aToggler);
+
 	void LayoutControls();
 	void InitializeControlsL();
    
@@ -123,6 +126,7 @@ private:
     TInt iPageBytes;
     TInt iTotalBytes;
     CPeriodic* iLoadingTimer;
+    MFullscreenToggler* iFullscreenToggler;
 	// [[[ begin generated region: do not modify [Generated Methods]
 public: 
 	// ]]] end generated region [Generated Methods]

@@ -1,0 +1,26 @@
+#!/bin/sh
+# Normalize Symbian-toolchain text files to CRLF before commit.
+# The build runs on the working tree; LF-only files break makesis, abld, rcomp.
+
+set -e
+
+pattern='\.(pkg|mmp|inf|hrh|rss|rssi|loc|l01|mk|rls|bat)$'
+
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E "$pattern" || true)
+[ -z "$files" ] && exit 0
+
+fixed=""
+for f in $files; do
+    [ -f "$f" ] || continue
+    if ! file "$f" 2>/dev/null | grep -q CRLF; then
+        sed -i -e 's/\r$//' -e 's/$/\r/' "$f"
+        git add "$f"
+        fixed="$fixed $f"
+    fi
+done
+
+if [ -n "$fixed" ]; then
+    printf 'pre-commit: normalized to CRLF:%s\n' "$fixed"
+fi
+
+exit 0

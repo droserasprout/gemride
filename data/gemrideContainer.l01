@@ -12,3 +12,4 @@
 #define STR_gemrideContainerView_4 "Gemride"
 #define STR_gemrideContainerView_1 ""
 #define STR_gemrideContainerView_6 "Go to"
+#define STR_gemrideContainerView_7 "Full screen"

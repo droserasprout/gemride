@@ -20,12 +20,14 @@
 #include "gemrideContainer.hrh"
 #include "GemtextParser.h"
 #include "gemrideAppUi.h"
+#include "MFullscreenToggler.h"
 
 CGemrideContainer::CGemrideContainer()
-    : iContent(NULL), iParser(NULL), iLoading(EFalse), 
+    : iContent(NULL), iParser(NULL), iLoading(EFalse),
       iScrollOffset(0), iTotalLines(0),
       iSelectedLink(-1), iLinkCount(0),
-      iCurrentUrl(NULL), iPageBytes(0), iTotalBytes(0), iLoadingTimer(NULL)
+      iCurrentUrl(NULL), iPageBytes(0), iTotalBytes(0), iLoadingTimer(NULL),
+      iFullscreenToggler(NULL)
     {
 	// [[[ begin generated region: do not modify [Generated Contents]
 	// ]]] end generated region [Generated Contents]
@@ -459,13 +461,25 @@ void CGemrideContainer::ActivateSelectedLinkL()
     }
 
 
+void CGemrideContainer::SetFullscreenToggler(MFullscreenToggler* aToggler)
+    {
+    iFullscreenToggler = aToggler;
+    }
+
 TKeyResponse CGemrideContainer::OfferKeyEventL(const TKeyEvent& aKeyEvent, TEventCode aType)
     {
+    // '*' toggles fullscreen, even during loading
+    if (aType == EEventKey && aKeyEvent.iCode == '*' && iFullscreenToggler)
+        {
+        iFullscreenToggler->ToggleFullscreenL();
+        return EKeyWasConsumed;
+        }
+
     // Ignore input while loading
     if (iLoading)
         {
         return EKeyWasConsumed;
-    }
+        }
 
     // Consume ALL center button events to prevent menu
     if (aKeyEvent.iScanCode == EStdKeyDevice3)

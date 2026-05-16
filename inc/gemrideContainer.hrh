@@ -9,5 +9,6 @@
 enum TGemrideContainerViewCommands
 	{
 	EGemrideContainerViewGo_toMenuItemCommand = 0x6000,
-	EGemrideContainerViewBackCommand
+	EGemrideContainerViewBackCommand,
+	EGemrideContainerViewToggleFullscreenCommand
 	};

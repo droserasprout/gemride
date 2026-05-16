@@ -10,16 +10,31 @@
 - TLS
 - Link navigation
 - Retry-on-failure
+- Fullscreen mode (press `*`)
 
 ## Installation
-
-**TODO**: Symbian jailbreak, TLS patch
 
 Direct links: [signed](https://github.com/droserasprout/gemride/raw/refs/heads/master/sis/gemride.sisx) | [unsigned](https://github.com/droserasprout/gemride/raw/refs/heads/master/sis/gemride.sis)
 
 ## Build environment
 
-**WARNING:** Updating vanilla Windows 7 with [Legacy Update](https://legacyupdate.net/) breaks Nokia connectivity somewhere in the between. I've failed to find out what specific KB is responsible for it and had to use custom build with built-in OS updates up to 2024/01 by Eagle123 user.
+Nokia E66 is the only Symbian phone I possess at the moment, so there's only one "success path" described in details below.
+
+### Device preparation
+
+**TODO**: Symbian jailbreak, TLS patch, TRK debug
+
+### VM preparation
+
+- Install VirtualBox
+- Create new VM, install Windows 7 SP1 (Eagle123 build with offline updates to 2024-01; vanilla + Legacy Update breaks Nokia PC Suite)
+- Install the toolchain stack from the table below (Carbide 2.7, S60 3rd FP2 SDK v1.1, ActivePerl 5.6.1, CSL ARM 2005-Q1C, Nokia PC Suite 7.1)
+- Install VirtualBox Guest Additions (enables shared folders and `VBoxManage guestcontrol`)
+- Add a shared folder pointing at the Linux project dir, mounted as `Y:` with auto-mount + permanent
+- Mirror `C:\S60\` into `Y:\S60\` so project and SDK share a drive
+- Set a non-blank password on the auto-created `user` account (`net user user <pw>` from an elevated cmd) so `VBoxManage guestcontrol` and TRK auth work — blank-password accounts are blocked for non-console logons by default
+
+### Software versions
 
 tldr: Carbide 2.7, S60 3rd FP2 SDK v1.1, ActivePerl 5.6.1, CSL ARM 2005-Q1C, Nokia PC Suite 7.1
 
@@ -47,7 +62,7 @@ End goal: make this piece of software complete and never touch it again while Ge
 
 - [ ] History
 - [ ] Bookmarks
-- [ ] Fullscreen
+- [x] Fullscreen
 - [ ] Home page
 - [ ] Cache, offline mode
 - [ ] Test on other devices
