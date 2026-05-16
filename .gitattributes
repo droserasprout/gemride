@@ -1,6 +1,10 @@
 # Default: auto-detect text files, use CRLF on Windows checkout
 * text=auto eol=crlf
 
+# Shell scripts: LF only (CRLF shebang breaks exec)
+.githooks/* text eol=lf
+*.sh text eol=lf
+
 # Binary files - no conversion
 *.bmp binary
 *.sis binary

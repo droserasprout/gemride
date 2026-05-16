@@ -18,7 +18,7 @@ Direct links: [signed](https://github.com/droserasprout/gemride/raw/refs/heads/m
 
 ## Build environment
 
-Nokia E66 is the only Symbian phone I possess at the moment, so there's only one "success path" described in details below.
+Nokia E66 is the only Symbian phone I possess at the moment, so there's only one "success path" described in details below. This setup lets you do development on Linux and "hot reload" builds in VM.
 
 ### Device preparation
 
@@ -31,7 +31,7 @@ Nokia E66 is the only Symbian phone I possess at the moment, so there's only one
 - Install the toolchain stack from the table below (Carbide 2.7, S60 3rd FP2 SDK v1.1, ActivePerl 5.6.1, CSL ARM 2005-Q1C, Nokia PC Suite 7.1)
 - Install VirtualBox Guest Additions (enables shared folders and `VBoxManage guestcontrol`)
 - Add a shared folder pointing at the Linux project dir, mounted as `Y:` with auto-mount + permanent
-- Mirror `C:\S60\` into `Y:\S60\` so project and SDK share a drive
+- Copy (mirror) `C:\S60\` into `Y:\S60\` so project and SDK share a drive
 - Set a non-blank password on the auto-created `user` account (`net user user <pw>` from an elevated cmd) so `VBoxManage guestcontrol` and TRK auth work — blank-password accounts are blocked for non-console logons by default
 
 ### Software versions
