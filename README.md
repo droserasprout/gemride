@@ -6,7 +6,7 @@
 
 ## Features
 
-- Gemtext rendering: headings, links, quotes,preformatted, word-wrap
+- Gemtext rendering: headings, links, quotes, preformatted, word-wrap
 - TLS
 - Link navigation
 - Retry-on-failure
@@ -19,7 +19,7 @@ Direct links: [signed](https://github.com/droserasprout/gemride/raw/refs/heads/m
 
 ## Build environment
 
-**WARNING:** Updating vanilla Windows 7 with [Legacy Update](https://legacyupdate.net/) breaks Nokia connectivity somewhere in the between. I've failed to find out what specific KB is responsible for it and had to use custom build with built-in OS updates up to 2024/01 <sup>(<a href="magnet:?xt=urn:btih:B479A2C1B0752E1597E88EB27C533DF451EF24C9&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&dn=Windows%207%20SP1%2026in1%20(x86%2Fx64)%20by%20Eagle123%20(01.2024)%20%5BRu%2FEn%5D">🧲</a>)</sup>
+**WARNING:** Updating vanilla Windows 7 with [Legacy Update](https://legacyupdate.net/) breaks Nokia connectivity somewhere in the between. I've failed to find out what specific KB is responsible for it and had to use custom build with built-in OS updates up to 2024/01 by Eagle123 user.
 
 tldr: Carbide 2.7, S60 3rd FP2 SDK v1.1, ActivePerl 5.6.1, CSL ARM 2005-Q1C, Nokia PC Suite 7.1
 
@@ -56,10 +56,7 @@ End goal: make this piece of software complete and never touch it again while Ge
 
 ## Links
 
-- [hstsethi/awesome-symbian](https://github.com/hstsethi/awesome-symbian)
-- Bleeding edge development party: [nnproject.cc](https://nnproject.cc/)
-- SDKs, dev tools, books: archive.org ([1](https://archive.org/details/nokia_sdks_n_dev_tools), [2](https://archive.org/details/nokia_sdks_n_dev_tools2))
-- SOTA 3D engine: [Dante-Leoncini/Whisk3D](https://github.com/Dante-Leoncini/Whisk3D) ([in action](https://www.instagram.com/p/C-tgbCGvMtC/))
+See [Awesome Symbian](https://github.com/hstsethi/awesome-symbian)
 
 ## License
 
